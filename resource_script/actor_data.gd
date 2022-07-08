@@ -1,9 +1,9 @@
 tool
 extends Resource
 
-class_name NPC_DATA
+class_name Npc_Data
 
-# actions without direct effect on puzzle state
+# action without direct effect on puzzle state
 export(int) var angry_action
 export(int) var happy_action
 export(int) var humor_action
@@ -21,6 +21,9 @@ export(int) var run_away
 export(int) var slap
 export(int) var make_out
 export(int) var walk_to_target
+export(int) var run_to_target
+export(int) var follow_target
+export(int) var seek_random
 
 # visual attributes
 

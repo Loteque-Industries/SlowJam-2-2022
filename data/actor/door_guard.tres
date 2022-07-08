@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://npc_data.gd" type="Script" id=1]
+[ext_resource path="res://resource_script/actor_data.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.180392, 0.129412, 0.623529, 1 )
@@ -21,4 +21,7 @@ run_away = 0
 slap = 0
 make_out = 0
 walk_to_target = 0
+run_to_target = 0
+follow_target = 0
+seek_random = 0
 material = SubResource( 1 )

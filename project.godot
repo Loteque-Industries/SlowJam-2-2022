@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
-"class": "NPC_DATA",
+"class": "Npc_Data",
 "language": "GDScript",
-"path": "res://npc_data.gd"
+"path": "res://resource_script/actor_data.gd"
 } ]
 _global_script_class_icons={
-"NPC_DATA": ""
+"Npc_Data": ""
 }
 
 [application]
@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="slowjam-2-2022"
 run/main_scene="res://TestRoom.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/SelEx/plugin.cfg" )
 
 [input]
 
