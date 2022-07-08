@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://npc_data.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.188235, 0.623529, 0.129412, 1 )
+
+[resource]
+script = ExtResource( 1 )
+angry_action = 0
+happy_action = 0
+humor_action = 0
+challenge_action = 0
+sad_action = 0
+fear_action = 0
+urgent_action = 0
+agree_action = 0
+open_door = 0
+punch = 0
+run_away = 0
+slap = 0
+make_out = 0
+walk_to_target = 0
+material = SubResource( 1 )
