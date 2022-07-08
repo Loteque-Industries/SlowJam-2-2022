@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://script/npc.gd" type="Script" id=2]
+[ext_resource path="res://script/npc2.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[node name="World" type="Spatial"]
+
+[node name="Room" type="Room" parent="."]
+
+[node name="FloorMeshInstance" type="MeshInstance" parent="Room"]
+transform = Transform( 10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/FloorMeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/FloorMeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance" type="MeshInstance" parent="Room"]
+transform = Transform( -4.37114e-07, 0.2, -2.18557e-07, 0, -8.74228e-09, -5, -10, -8.74228e-09, 9.55343e-15, 10, 5, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance2" type="MeshInstance" parent="Room"]
+transform = Transform( -4.37114e-07, 0.2, -2.18557e-07, 0, -8.74228e-09, -5, -10, -8.74228e-09, 9.55343e-15, -10, 5, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance2/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance3" type="MeshInstance" parent="Room"]
+transform = Transform( -10, 1.74846e-08, 1.91069e-14, 0, -8.74228e-09, 5, 8.74228e-07, 0.2, 2.18557e-07, 0, 5, 10 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance3/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance4" type="MeshInstance" parent="Room"]
+transform = Transform( -10, 3.01992e-08, 3.30012e-14, 0, -8.74228e-09, 5, 1.50996e-06, 0.2, 2.18557e-07, 0, 5, -10 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance4/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Player" parent="Room" instance=ExtResource( 1 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.755914, 0 )
+
+[node name="Npc" parent="Room" instance=ExtResource( 1 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.59797, 0.742851, 0 )
+script = ExtResource( 2 )
+
+[node name="Npc2" parent="Room" instance=ExtResource( 1 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.59797, 0.742851, -3.1609 )
+script = ExtResource( 3 )
