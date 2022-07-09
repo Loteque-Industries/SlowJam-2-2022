@@ -1,3 +1,6 @@
+# production ignores
+roughdraft
+
 # godot ignores
 .import/
 export.cfg
