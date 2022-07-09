@@ -1,16 +1,16 @@
 # TITLE: POSSESS
 ***
-##Perspective:
+## Perspective:
 * First Person
 ![](_documentation/concept_art/general_gameplay_view.png)
 
-##Style:
+## Style:
 * Low poly, Quake III, ps2 era graphics with better colors/fx, richer sound
 * scifi/fantasy
 * noir
 * Imersive Sim Lite
 
-##Mechanics:
+## Mechanics:
 * The player is an alien catured by a seedy rouge orginization, they must escape using stealth, telepathathically controlling conversations, telekinetically solving puzzles, and telepathically explode heads!
 * The main mechanic is sneaking around. When the player is hidden the arms will be translucent.
 * When the player is "noticed" by another character a timer starts; that timer is visually indicated by the players arms filling up with opaque texture.
