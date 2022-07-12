@@ -1,0 +1,185 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://methods/interactable.gd" type="Script" id=1]
+[ext_resource path="res://script/npc.gd" type="Script" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.921569, 0.054902, 0.054902, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.235294, 0.164706, 0.0509804, 1 )
+
+[sub_resource type="BoxShape" id=6]
+
+[node name="World" type="Spatial"]
+
+[node name="Room" type="Room" parent="."]
+
+[node name="FloorMeshInstance" type="MeshInstance" parent="Room"]
+transform = Transform( 10, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/FloorMeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/FloorMeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance" type="MeshInstance" parent="Room"]
+transform = Transform( -8.74228e-07, 0.2, -1.74846e-07, 0, -8.74228e-09, -4, -20, -8.74228e-09, 7.64274e-15, 10, 4, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance2" type="MeshInstance" parent="Room"]
+transform = Transform( -8.74228e-07, 0.2, -1.74846e-07, 0, -8.74228e-09, -4, -20, -8.74228e-09, 7.64274e-15, -10, 4, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance2/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance3" type="MeshInstance" parent="Room"]
+transform = Transform( -10, 3.01992e-08, 2.64009e-14, 0, -8.74228e-09, 4, 1.50996e-06, 0.2, 1.74846e-07, 0, 4, 20 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance3/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WallMeshInstance4" type="MeshInstance" parent="Room"]
+transform = Transform( -10, 3.01992e-08, 2.64009e-14, 0, -8.74228e-09, 4, 1.50996e-06, 0.2, 1.74846e-07, 0, 4, -20 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Room/WallMeshInstance4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/WallMeshInstance4/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="InteractableButton" type="MeshInstance" parent="Room"]
+transform = Transform( -0.4, 6.03983e-08, 2.64009e-15, 0, -1.74846e-08, 0.4, 6.03983e-08, 0.4, 1.74846e-08, 0, 1.71866, -19.9555 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Room/InteractableButton"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/InteractableButton/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Crate" type="MeshInstance" parent="Room"]
+transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -2.36595, 1.71866, 11.4269 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Room/Crate"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Crate/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Crate2" type="MeshInstance" parent="Room"]
+transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -1.33541, 1.71866, 7.53925 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Room/Crate2"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Crate2/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Crate3" type="MeshInstance" parent="Room"]
+transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -1.70353, 3.70884, 6.96023 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Room/Crate3"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Crate3/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Crate4" type="MeshInstance" parent="Room"]
+transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -1.33541, 1.71866, -0.512374 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Room/Crate4"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Crate4/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Crate5" type="MeshInstance" parent="Room"]
+transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -0.0550764, 1.71866, -12.9214 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Room/Crate5"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Crate5/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Player" parent="Room" instance=ExtResource( 4 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.755914, 17.4591 )
+
+[node name="Npc" parent="Room" instance=ExtResource( 4 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.5624, 0.742851, 14.0166 )
+script = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Room/Npc"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16377, 0 )
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Npc/StaticBody"]
+transform = Transform( 0.8, 0, 0, 0, 0.5, 0, 0, 0, 0.8, 0, 1.35963, 0 )
+shape = SubResource( 6 )
+
+[node name="PlayerInput" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -240.0
+margin_top = -120.0
+margin_right = 240.0
+margin_bottom = -40.0
+
+[node name="InteractionLabel" type="Label" parent="PlayerInput"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -106.0
+margin_top = -40.0
+margin_right = 106.0
+margin_bottom = 40.0
+text = "Press E to Interact"
+align = 1
+valign = 1
