@@ -7,10 +7,6 @@ onready var interact_key = InputMap.get_action_list("interact")[0].as_text()
 
 func _ready() -> void:
 	set_interaction_text("")
-	for actionName in InputMap.get_actions():
-		print("%s:" % actionName)
-		for inputEvent in InputMap.get_action_list(actionName):
-			print("  %s" % inputEvent.as_text())
 
 func _process(_delta: float) -> void:
 	var collider = get_collider()

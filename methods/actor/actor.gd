@@ -1,11 +1,6 @@
-extends Node
+extends KinematicBody
 
-class_name = Interactable
+class_name Actor
 
-get_interaction_text():
-	
-func get_interaction_text():
-	return "Interact"
-	
-func interact():
-	print("Interacted with %s " % name)
+func _ready() -> void:
+	pass

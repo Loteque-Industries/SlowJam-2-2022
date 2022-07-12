@@ -15,13 +15,7 @@ var velocity = Vector3()
 var camera_x_rotation = 0
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		head.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
-		
-		var x_delta = event.relative.y * mouse_sensitivity
-		if camera_x_rotation + x_delta > -92 and camera_x_rotation + x_delta < 89:
-			camera.rotate_x(deg2rad(-x_delta))
-			camera_x_rotation += x_delta
+	update_head_position(event)
 
 func _ready() -> void:
 	space_state = get_world().direct_space_state
@@ -54,6 +48,15 @@ func _physics_process(delta: float) -> void:
 	var slides = get_slide_count()
 	if(slides):
 		slope(slides)
+
+func update_head_position(event):
+	if event is InputEventMouseMotion:
+		head.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
+		
+		var x_delta = event.relative.y * mouse_sensitivity
+		if camera_x_rotation + x_delta > -92 and camera_x_rotation + x_delta < 89:
+			camera.rotate_x(deg2rad(-x_delta))
+			camera_x_rotation += x_delta
 
 #Hack to fix a bug with move_and_slide in godot.
 #discussion/demo: https://www.reddit.com/r/godot/comments/hc4lur/how_to_move_and_stop_correctly_on_slopes_using
