@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://methods/interactable.gd" type="Script" id=1]
+[ext_resource path="res://http_request_demo.gd" type="Script" id=2]
 [ext_resource path="res://script/npc.gd" type="Script" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
@@ -161,7 +162,7 @@ script = ExtResource( 1 )
 transform = Transform( 0.8, 0, 0, 0, 0.5, 0, 0, 0, 0.8, 0, 1.35963, 0 )
 shape = SubResource( 6 )
 
-[node name="PlayerInput" type="Control" parent="."]
+[node name="UIPlayerInput" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -171,7 +172,11 @@ margin_top = -120.0
 margin_right = 240.0
 margin_bottom = -40.0
 
-[node name="InteractionLabel" type="Label" parent="PlayerInput"]
+[node name="LineEdit" type="LineEdit" parent="UIPlayerInput"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="InteractionLabel" type="Label" parent="UIPlayerInput"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -183,3 +188,8 @@ margin_bottom = 40.0
 text = "Press E to Interact"
 align = 1
 valign = 1
+
+[node name="HTTPRequestDemo" type="HTTPRequest" parent="."]
+script = ExtResource( 2 )
+
+[connection signal="request_completed" from="HTTPRequestDemo" to="HTTPRequestDemo" method="_on_HTTPRequest_request_completed"]

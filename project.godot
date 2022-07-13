@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "HTTPRequest",
+"class": "API_Connector",
+"language": "GDScript",
+"path": "res://methods/connection/api_connector.gd"
+}, {
+"base": "KinematicBody",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://methods/actor/actor.gd"
+}, {
 "base": "Node",
 "class": "Interactable",
 "language": "GDScript",
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://resource_script/actor_data.gd"
 } ]
 _global_script_class_icons={
+"API_Connector": "",
+"Actor": "",
 "Interactable": "",
 "Npc_Data": ""
 }

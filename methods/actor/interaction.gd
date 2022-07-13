@@ -2,7 +2,7 @@ extends RayCast
 
 var current_collider
 
-onready var interaction_label = get_node("/root/World/PlayerInput/InteractionLabel")
+onready var interaction_label = get_node("/root/World/UIPlayerInput/InteractionLabel")
 onready var interact_key = InputMap.get_action_list("interact")[0].as_text()
 
 func _ready() -> void:
