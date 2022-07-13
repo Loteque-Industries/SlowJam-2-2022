@@ -1,7 +1,8 @@
 extends API_Connector
 
-onready var api_key: String = get_api_key(CONFIG_FILE, "swapi")
-onready var api_url: String = get_api_url(CONFIG_FILE, "swapi")
+onready var connection_param = "res://data/connection/swapi.tres" 
+onready var api_key: String = get_api_key(connection_param, "swapi", "tres")
+onready var api_url: String = get_api_url(connection_param, "swapi", "tres")
 onready var endpoint: String
 
 func _ready() -> void:

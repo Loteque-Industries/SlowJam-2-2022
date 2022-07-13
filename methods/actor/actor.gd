@@ -19,7 +19,7 @@ func update_head_position(
 			camera.rotate_x(deg2rad(-x_delta))
 			camera_x_rotation += x_delta
 
-#Hack to fix a bug with move_and_slide in godot.
+#Hack to fix a bug with move_and_slide in godot 3.
 #discussion/demo: https://www.reddit.com/r/godot/comments/hc4lur/how_to_move_and_stop_correctly_on_slopes_using
 func slope(slides : int, velocity: Vector3):
 	for i in slides:

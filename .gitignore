@@ -1,6 +1,7 @@
 # production ignores
 roughdraft
 .app_config/
+connection/
 
 # godot ignores
 .import/
