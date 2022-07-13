@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://methods/interactable.gd" type="Script" id=1]
+[ext_resource path="res://http_request_demo.gd" type="Script" id=2]
 [ext_resource path="res://script/npc.gd" type="Script" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
@@ -187,3 +188,8 @@ margin_bottom = 40.0
 text = "Press E to Interact"
 align = 1
 valign = 1
+
+[node name="HTTPRequestDemo" type="HTTPRequest" parent="."]
+script = ExtResource( 2 )
+
+[connection signal="request_completed" from="HTTPRequestDemo" to="HTTPRequestDemo" method="_on_HTTPRequest_request_completed"]
