@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resource_script/connection_data.gd"
 }, {
-"base": "Node",
+"base": "CollisionObject",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://methods/interactable.gd"
@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="slowjam-2-2022"
-run/main_scene="res://World.tscn"
+run/main_scene="res://scenes/World.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]

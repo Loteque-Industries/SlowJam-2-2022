@@ -6,9 +6,8 @@ onready var api_url: String = get_api_url(connection_param, "swapi", "tres")
 onready var endpoint: String
 
 func _ready() -> void:
-	endpoint = "/people/12/"
-	api_connect(api_url, endpoint)
-		
+	pass
+	
 func _on_HTTPRequest_request_completed(
 	result: int, 
 	response_code: int, 
@@ -16,3 +15,8 @@ func _on_HTTPRequest_request_completed(
 	body: PoolByteArray) -> void:
 	var output = body.get_string_from_utf8()
 	print(output)
+
+
+func _on_LineEdit_text_entered(new_text: String) -> void:
+	endpoint = "/people/1/"
+	api_connect(api_url, endpoint)

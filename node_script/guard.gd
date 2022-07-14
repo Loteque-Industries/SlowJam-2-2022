@@ -7,8 +7,8 @@ func _ready() -> void:
 
 	set_material(door_guard_data)
 	
-	
-func set_material(new_material):
+# should set children of Npc Node as editable in the editor instead.
+func set_material(data):
 	var material = SpatialMaterial.new()
-	material.albedo_color = new_material.material.albedo_color
+	material.albedo_color = data.material.albedo_color
 	current_mesh.set_surface_material(0, material)
