@@ -3,7 +3,7 @@
 [ext_resource path="res://resource_script/actor_data.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.180392, 0.129412, 0.623529, 1 )
+albedo_color = Color( 0.0784314, 0.486275, 0.0196078, 1 )
 
 [resource]
 script = ExtResource( 1 )

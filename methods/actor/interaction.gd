@@ -1,4 +1,5 @@
 extends RayCast
+class_name Interaction
 
 var current_collider
 

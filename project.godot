@@ -19,27 +19,39 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://methods/actor/actor.gd"
 }, {
-"base": "Node",
+"base": "Resource",
+"class": "Actor_Data",
+"language": "GDScript",
+"path": "res://resource_script/actor_data.gd"
+}, {
+"base": "Resource",
+"class": "Connection_Data",
+"language": "GDScript",
+"path": "res://resource_script/connection_data.gd"
+}, {
+"base": "CollisionObject",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://methods/interactable.gd"
 }, {
-"base": "Resource",
-"class": "Npc_Data",
+"base": "RayCast",
+"class": "Interaction",
 "language": "GDScript",
-"path": "res://resource_script/actor_data.gd"
+"path": "res://methods/actor/interaction.gd"
 } ]
 _global_script_class_icons={
 "API_Connector": "",
 "Actor": "",
+"Actor_Data": "",
+"Connection_Data": "",
 "Interactable": "",
-"Npc_Data": ""
+"Interaction": ""
 }
 
 [application]
 
 config/name="slowjam-2-2022"
-run/main_scene="res://World.tscn"
+run/main_scene="res://scenes/World.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]

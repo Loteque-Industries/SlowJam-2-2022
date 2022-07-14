@@ -1,7 +1,7 @@
 tool
 extends Resource
 
-class_name Npc_Data
+class_name Actor_Data
 
 # action without direct effect on puzzle state
 export(int) var angry_action
