@@ -1,7 +1,7 @@
 extends KinematicBody
 
 onready var door_guard_data = load("res://data/actor/guard.tres")
-onready var current_mesh = get_child(2)
+onready var current_mesh = get_child(1)
 
 func _ready() -> void:
 
