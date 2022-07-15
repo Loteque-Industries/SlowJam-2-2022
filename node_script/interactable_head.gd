@@ -26,12 +26,4 @@ func _on_HTTPRequestDemo_request_completed(
 	body: PoolByteArray) -> void:
 	response_text = body.get_string_from_utf8()
 	$Viewport/UIActor/TextBox/ActorTextOutput.set_text(response_text)
-	# wait timer
-	# do an area check to see if other npc are around
-	# If there are npc around
-		# find and pick nearest npc
-		# display $response_text in $ActorTextOutput
-		# send $rsponse_text to nearest npc
-		# nearest actor does stuff with $psychic_text
-	# Else
-		# display $response_text in $ActorTextOutput
+	# display $response_text in $ActorTextOutput
