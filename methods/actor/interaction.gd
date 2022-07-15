@@ -3,7 +3,7 @@ class_name Interaction
 
 var current_collider
 
-onready var interaction_label = get_node("/root/World/UIPlayerInput/InteractionLabel")
+onready var interaction_label = get_node("/root/World/Room/Player/UI/InteractionLabel")
 onready var interact_key = InputMap.get_action_list("interact")[0].as_text()
 
 func _ready() -> void:

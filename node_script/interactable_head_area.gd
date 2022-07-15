@@ -1,7 +1,7 @@
 extends Interactable
 	
-onready var ui_player_input_text_box: Node = get_node("/root/World/UIPlayerInput/TextBox")
-onready var input_text_box_line_edit: Node = get_node("/root/World/UIPlayerInput/TextBox/LineEdit")
+onready var ui_player_input_text_box: Node = get_node("../UIPlayerInput/TextBox")
+onready var input_text_box_line_edit: Node = get_node("../UIPlayerInput/TextBox/LineEdit")
 onready var ui_actor_screen: Node = get_node("UIActorScreen")
 
 func _ready() -> void:
