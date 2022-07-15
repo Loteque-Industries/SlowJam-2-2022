@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://node_script/interactable_head_area.gd" type="Script" id=1]
 [ext_resource path="res://methods/interactable.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://node_script/guard.gd" type="Script" id=5]
 [ext_resource path="res://node_script/TextBox.gd" type="Script" id=6]
 [ext_resource path="res://data/font/Press_Start_2P_Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=8]
 [ext_resource path="res://node_script/interactable_head.gd" type="Script" id=9]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material_007.material" type="Material" id=10]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material.material" type="Material" id=11]
@@ -74,6 +75,8 @@ surfaces/0 = {
 }
 
 [node name="World" type="Spatial"]
+
+[node name="PauseController" parent="." instance=ExtResource( 8 )]
 
 [node name="UIPlayerInput" type="Control" parent="."]
 anchor_left = 0.5
