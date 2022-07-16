@@ -42,7 +42,7 @@ transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.62577, 0.742851, 14.01
 script = ExtResource( 2 )
 
 [node name="Area" type="Area" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.255297, -1.9119 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.422736, -1.9119 )
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.882776, 1.11781, 0 )
