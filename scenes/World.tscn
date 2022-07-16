@@ -1,14 +1,9 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://node_script/interactable_head_area.gd" type="Script" id=1]
+[ext_resource path="res://Guard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://methods/interactable.gd" type="Script" id=2]
-[ext_resource path="res://http_request_demo.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://node_script/guard.gd" type="Script" id=5]
-[ext_resource path="res://node_script/TextBox.gd" type="Script" id=6]
-[ext_resource path="res://data/font/Press_Start_2P_Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=8]
-[ext_resource path="res://node_script/interactable_head.gd" type="Script" id=9]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material_007.material" type="Material" id=10]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material.material" type="Material" id=11]
 [ext_resource path="res://scenes/Window.tscn" type="PackedScene" id=12]
@@ -43,34 +38,6 @@ albedo_color = Color( 0.921569, 0.054902, 0.054902, 1 )
 
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
-[sub_resource type="CapsuleShape" id=24]
-radius = 0.75
-height = 1.25
-
-[sub_resource type="CapsuleMesh" id=25]
-radius = 0.75
-mid_height = 1.25
-
-[sub_resource type="SpatialMaterial" id=26]
-albedo_color = Color( 0.709804, 0.709804, 0.709804, 1 )
-
-[sub_resource type="QuadMesh" id=7]
-
-[sub_resource type="ViewportTexture" id=11]
-viewport_path = NodePath("Room/Guard/IteractableHead/Viewport")
-
-[sub_resource type="SpatialMaterial" id=12]
-resource_local_to_scene = true
-params_billboard_mode = 1
-params_billboard_keep_scale = true
-albedo_texture = SubResource( 11 )
-
-[sub_resource type="BoxShape" id=6]
-
-[sub_resource type="DynamicFont" id=10]
-size = 39
-font_data = ExtResource( 7 )
 
 [sub_resource type="ArrayMesh" id=13]
 blend_shape_mode = 0
@@ -141,86 +108,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Guard" type="KinematicBody" parent="Room" groups=["Enemy"]]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.62577, 0.742851, 14.0166 )
-script = ExtResource( 5 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Guard"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.548853, 0 )
-shape = SubResource( 24 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Room/Guard"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.555052, 0 )
-mesh = SubResource( 25 )
-material/0 = SubResource( 26 )
-
-[node name="IteractableHead" type="Spatial" parent="Room/Guard"]
-script = ExtResource( 9 )
-
-[node name="Area" type="StaticBody" parent="Room/Guard/IteractableHead"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16377, 0 )
-collision_layer = 2
-script = ExtResource( 1 )
-
-[node name="UIActorScreen" type="MeshInstance" parent="Room/Guard/IteractableHead/Area"]
-transform = Transform( 1.54, 0, 0, 0, 0.9, 0, 0, 0, 1.429, 0.984087, 2.35535, 0.102449 )
-visible = false
-mesh = SubResource( 7 )
-material/0 = SubResource( 12 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Guard/IteractableHead/Area"]
-transform = Transform( 0.8, 0, 0, 0, 0.5, 0, 0, 0, 0.8, 0, 1.35963, 0 )
-shape = SubResource( 6 )
-
-[node name="HTTPRequestDemo" type="HTTPRequest" parent="Room/Guard/IteractableHead"]
-script = ExtResource( 3 )
-
-[node name="Viewport" type="Viewport" parent="Room/Guard/IteractableHead"]
-size = Vector2( 1024, 600 )
-render_target_v_flip = true
-
-[node name="UIActor" type="Control" parent="Room/Guard/IteractableHead/Viewport"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="TextBox" type="Control" parent="Room/Guard/IteractableHead/Viewport/UIActor"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="ColorRect" type="ColorRect" parent="Room/Guard/IteractableHead/Viewport/UIActor/TextBox"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.666667, 0.666667, 0.666667, 1 )
-
-[node name="ActorTextOutput" type="Label" parent="Room/Guard/IteractableHead/Viewport/UIActor/TextBox"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 10 )
-text = "Actor Text"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="UIPlayerInput" type="Control" parent="Room/Guard/IteractableHead"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -240.0
-margin_top = -120.0
-margin_right = 240.0
-margin_bottom = -40.0
-
-[node name="TextBox" type="Control" parent="Room/Guard/IteractableHead/UIPlayerInput"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 6 )
-
-[node name="LineEdit" type="LineEdit" parent="Room/Guard/IteractableHead/UIPlayerInput/TextBox"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Guard" parent="Room" instance=ExtResource( 1 )]
 
 [node name="TrashBin" type="Spatial" parent="Room"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.83206, 0.199999, 12.396 )
@@ -527,6 +415,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
 
 [node name="CeilingGroup" type="Spatial" parent="Room"]
+visible = false
 
 [node name="CeilingRow" type="Spatial" parent="Room/CeilingGroup"]
 
@@ -722,11 +611,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68958, 1.94001, -0.202903 )
 
 [node name="Syringe" parent="Room" instance=ExtResource( 23 )]
 transform = Transform( 0.991214, 0.0597594, 0.118002, -0.0567828, 0.997982, -0.0284301, -0.119463, 0.0214798, 0.992606, -2.39647, 0.823449, 0.182384 )
-
-[connection signal="request_completed" from="Room/Guard/IteractableHead/HTTPRequestDemo" to="Room/Guard/IteractableHead" method="_on_HTTPRequestDemo_request_completed"]
-[connection signal="request_completed" from="Room/Guard/IteractableHead/HTTPRequestDemo" to="Room/Guard/IteractableHead/HTTPRequestDemo" method="_on_HTTPRequest_request_completed"]
-[connection signal="text_entered" from="Room/Guard/IteractableHead/UIPlayerInput/TextBox/LineEdit" to="Room/Guard/IteractableHead" method="_on_LineEdit_text_entered"]
-[connection signal="text_entered" from="Room/Guard/IteractableHead/UIPlayerInput/TextBox/LineEdit" to="Room/Guard/IteractableHead/HTTPRequestDemo" method="_on_LineEdit_text_entered"]
-[connection signal="text_entered" from="Room/Guard/IteractableHead/UIPlayerInput/TextBox/LineEdit" to="Room/Guard/IteractableHead/UIPlayerInput/TextBox" method="_on_LineEdit_text_entered"]
 
 [editable path="Room/Box2"]

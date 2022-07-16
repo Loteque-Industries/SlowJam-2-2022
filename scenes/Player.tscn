@@ -16,7 +16,7 @@ mid_height = 1.25
 albedo_color = Color( 0.709804, 0.709804, 0.709804, 1 )
 
 [node name="Player" type="KinematicBody" groups=["Player"]]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+transform = Transform( -3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="Head" type="Spatial" parent="."]
