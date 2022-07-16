@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://meshes/Level Design Objects/lambert1.material" type="Material" id=1]
+[ext_resource path="res://Textures/Ceiling/T_CeilingTiles_BaseColor.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Ceiling/T_CeilingTiles_Normal.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Ceiling/T_CeilingTiles_Roughness.png" type="Texture" id=4]
+
+[sub_resource type="ArrayMesh" id=1]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -3.9041e-08, -1.3262e-07, -4, 4, 0.2, 4.00001 ),
+"array_data": PoolByteArray( 20, 174, 39, 179, 102, 102, 14, 180, 0, 0, 0, 0, 0, 0, 126, 63, 0, 0, 61, 18, 0, 0, 128, 64, 102, 102, 14, 180, 0, 0, 0, 0, 0, 0, 127, 63, 254, 59, 61, 18, 0, 0, 128, 64, 196, 204, 76, 62, 0, 0, 0, 0, 0, 0, 127, 63, 254, 59, 76, 170, 20, 174, 39, 179, 196, 204, 76, 62, 0, 0, 0, 0, 0, 0, 126, 63, 0, 0, 76, 170, 20, 174, 39, 179, 196, 204, 76, 62, 0, 0, 0, 0, 0, 127, 127, 63, 171, 25, 0, 60, 0, 0, 128, 64, 196, 204, 76, 62, 0, 0, 0, 0, 0, 127, 127, 63, 2, 60, 0, 60, 0, 0, 128, 64, 196, 204, 76, 62, 0, 0, 128, 192, 0, 127, 127, 63, 2, 60, 15, 23, 20, 174, 39, 179, 196, 204, 76, 62, 0, 0, 128, 192, 0, 127, 127, 63, 172, 25, 11, 23, 20, 174, 39, 179, 196, 204, 76, 62, 0, 0, 128, 192, 127, 127, 127, 63, 0, 0, 51, 60, 0, 0, 128, 64, 196, 204, 76, 62, 0, 0, 128, 192, 127, 127, 127, 63, 254, 59, 51, 60, 0, 0, 128, 64, 102, 102, 14, 180, 0, 0, 128, 192, 127, 127, 127, 63, 254, 59, 0, 60, 20, 174, 39, 179, 102, 102, 14, 180, 0, 0, 128, 192, 127, 127, 127, 63, 0, 0, 0, 60, 20, 174, 39, 179, 102, 102, 14, 180, 0, 0, 128, 192, 0, 129, 127, 63, 0, 0, 0, 60, 0, 0, 128, 64, 102, 102, 14, 180, 0, 0, 128, 192, 0, 129, 127, 63, 254, 59, 0, 60, 0, 0, 128, 64, 102, 102, 14, 180, 0, 0, 0, 0, 0, 129, 127, 63, 254, 59, 61, 18, 20, 174, 39, 179, 102, 102, 14, 180, 0, 0, 0, 0, 0, 129, 127, 63, 0, 0, 61, 18, 0, 0, 128, 64, 102, 102, 14, 180, 0, 0, 0, 0, 127, 0, 0, 126, 254, 59, 61, 18, 0, 0, 128, 64, 102, 102, 14, 180, 0, 0, 128, 192, 127, 0, 0, 127, 254, 59, 0, 60, 0, 0, 128, 64, 196, 204, 76, 62, 0, 0, 128, 192, 127, 0, 0, 127, 50, 60, 0, 60, 0, 0, 128, 64, 196, 204, 76, 62, 0, 0, 0, 0, 127, 0, 0, 126, 50, 60, 61, 18, 20, 174, 39, 179, 102, 102, 14, 180, 0, 0, 128, 192, 129, 0, 0, 1, 0, 0, 0, 60, 20, 174, 39, 179, 102, 102, 14, 180, 0, 0, 0, 0, 129, 0, 0, 1, 0, 0, 61, 18, 20, 174, 39, 179, 196, 204, 76, 62, 0, 0, 0, 0, 129, 0, 0, 1, 101, 170, 61, 18, 20, 174, 39, 179, 196, 204, 76, 62, 0, 0, 128, 192, 129, 0, 0, 1, 101, 170, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0, 4, 0, 6, 0, 5, 0, 6, 0, 4, 0, 7, 0, 8, 0, 10, 0, 9, 0, 10, 0, 8, 0, 11, 0, 12, 0, 14, 0, 13, 0, 14, 0, 12, 0, 15, 0, 16, 0, 18, 0, 17, 0, 18, 0, 16, 0, 19, 0, 20, 0, 22, 0, 21, 0, 22, 0, 20, 0, 23, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 1 ),
+"name": "lambert1",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 3 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 0, 0, 0, 4, 0.2, 0, 4, 0, 0, 4, 0.2, 0, 0, 0, 0, 0, 0.2, 0, 0, 0.2, 0, 4, 0.2, -4, 4, 0.2, 0, 4, 0.2, -4, 0, 0.2, 0, 0, 0.2, -4, 0, 0.2, -4, 4, 0, -4, 4, 0.2, -4, 4, 0, -4, 0, 0.2, -4, 0, 0, -4, 0, 0, -4, 4, 0, 0, 4, 0, -4, 4, 0, 0, 0, 0, -4, 0, 0, 0, 4, 0, 0, 4, 0.2, -4, 4, 0, -4, 4, 0.2, -4, 4, 0, 0, 4, 0.2, 0, 0, 0, -4, 0, 0.2, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, -4, 0, 0.2, -4 )
+
+[node name="Ceiling" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 0 )
+
+[node name="RootNode" type="Spatial" parent="."]
+
+[node name="SM_Ceiling" type="MeshInstance" parent="RootNode"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="RootNode/SM_Ceiling"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RootNode/SM_Ceiling/StaticBody"]
+shape = SubResource( 2 )
