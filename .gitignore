@@ -2,6 +2,7 @@
 roughdraft
 .app_config/
 connection/
+086_hdrmaps_com_free.exr
 
 # godot ignores
 .import/

@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://meshes/Level Design Objects/lambert1.material" type="Material" id=1]
+[ext_resource path="res://Textures/Floor/T_Floor_BaseColor.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Floor/T_Floor_Roughness.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Floor/T_Floor_Normal.png" type="Texture" id=4]
+[ext_resource path="res://Textures/AlienArms/AlienArms_lambert1_Metallic.png" type="Texture" id=5]
 
 [sub_resource type="ArrayMesh" id=27]
 blend_shape_mode = 0
@@ -18,17 +22,24 @@ surfaces/0 = {
 "vertex_count": 24
 }
 
+[sub_resource type="SpatialMaterial" id=29]
+albedo_texture = ExtResource( 2 )
+metallic_texture = ExtResource( 5 )
+roughness_texture = ExtResource( 3 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 4 )
+
 [sub_resource type="ConcavePolygonShape" id=28]
 data = PoolVector3Array( 0, -0.2, 0, 4, 0, 0, 4, -0.2, 0, 4, 0, 0, 0, -0.2, 0, 0, 0, 0, 0, 0, 0, 4, 0, -4, 4, 0, 0, 4, 0, -4, 0, 0, 0, 0, 0, -4, 0, 0, -4, 4, -0.2, -4, 4, 0, -4, 4, -0.2, -4, 0, 0, -4, 0, -0.2, -4, 0, -0.2, -4, 4, -0.2, 0, 4, -0.2, -4, 4, -0.2, 0, 0, -0.2, -4, 0, -0.2, 0, 4, -0.2, 0, 4, 0, -4, 4, -0.2, -4, 4, 0, -4, 4, -0.2, 0, 4, 0, 0, 0, -0.2, -4, 0, 0, 0, 0, -0.2, 0, 0, 0, 0, 0, -0.2, -4, 0, 0, -4 )
 
 [node name="Floor" type="Spatial"]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, -9.78795, 0.233361, 19.8406 )
 
 [node name="RootNode" type="Spatial" parent="."]
 
 [node name="Floor" type="MeshInstance" parent="RootNode"]
 mesh = SubResource( 27 )
-material/0 = null
+material/0 = SubResource( 29 )
 
 [node name="StaticBody" type="StaticBody" parent="RootNode/Floor"]
 
