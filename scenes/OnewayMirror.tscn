@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://meshes/Level Design Objects/lambert1.material" type="Material" id=1]
+[ext_resource path="res://Textures/WindowMirror/T_Mirror_BaseColor.png" type="Texture" id=2]
+[ext_resource path="res://Textures/WindowMirror/T_Mirror_Metallic.png" type="Texture" id=3]
+[ext_resource path="res://Textures/WindowMirror/T_Mirror_Roughness.png" type="Texture" id=4]
+
+[sub_resource type="ArrayMesh" id=1]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( 0.1, 1.16214, -3.15401, 9.99868e-06, 1.29416, 2.30804 ),
+"array_data": PoolByteArray( 204, 204, 204, 61, 221, 51, 29, 64, 125, 146, 88, 191, 127, 0, 127, 1, 0, 0, 0, 0, 204, 204, 204, 61, 23, 193, 148, 63, 125, 146, 88, 191, 127, 0, 127, 127, 0, 0, 0, 60, 204, 204, 204, 61, 23, 193, 148, 63, 91, 219, 73, 192, 127, 0, 126, 1, 0, 60, 0, 60, 204, 204, 204, 61, 221, 51, 29, 64, 91, 219, 73, 192, 127, 0, 126, 1, 255, 59, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 2, 0, 0, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"name": "lambert1",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+metallic_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 4 )
+
+[node name="OnewayMirror" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4 )
+
+[node name="RootNode" type="Spatial" parent="."]
+
+[node name="SM_WindowPane_Oneway" type="MeshInstance" parent="RootNode"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

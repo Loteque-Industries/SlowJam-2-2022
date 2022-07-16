@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://meshes/Level Design Objects/lambert1.material" type="Material" id=1]
+[ext_resource path="res://Textures/Wall/T_Wall_Normal.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Wall/T_Wall_BaseColor.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Wall/T_Wall_Roughness.png" type="Texture" id=4]
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id=27]
 blend_shape_mode = 0
 surfaces/0 = {
 "aabb": AABB( 0, 0, -4, 0.2, 4, 4.00001 ),
@@ -18,19 +21,26 @@ surfaces/0 = {
 "vertex_count": 24
 }
 
-[sub_resource type="ConcavePolygonShape" id=2]
+[sub_resource type="SpatialMaterial" id=30]
+albedo_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 2 )
+
+[sub_resource type="ConcavePolygonShape" id=28]
 data = PoolVector3Array( 0, 0, 0, 0.2, 4, 0, 0.2, 0, 0, 0.2, 4, 0, 0, 0, 0, 0, 4, 0, 0, 4, 0, 0.2, 4, -4, 0.2, 4, 0, 0.2, 4, -4, 0, 4, 0, 0, 4, -4, 0, 4, -4, 0.2, 0, -4, 0.2, 4, -4, 0.2, 0, -4, 0, 4, -4, 0, 0, -4, 0, 0, -4, 0.2, 0, 0, 0.2, 0, -4, 0.2, 0, 0, 0, 0, -4, 0, 0, 0, 0.2, 0, 0, 0.2, 4, -4, 0.2, 0, -4, 0.2, 4, -4, 0.2, 0, 0, 0.2, 4, 0, 0, 0, -4, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, -4, 0, 4, -4 )
 
 [node name="Wall" type="Spatial"]
-
-[node name="RootNode" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -4 )
 
-[node name="Wall" type="MeshInstance" parent="RootNode"]
-mesh = SubResource( 1 )
-material/0 = null
+[node name="RootNode" type="Spatial" parent="."]
 
-[node name="StaticBody" type="StaticBody" parent="RootNode/Wall"]
+[node name="SM_Wall" type="MeshInstance" parent="RootNode"]
+mesh = SubResource( 27 )
+material/0 = SubResource( 30 )
 
-[node name="CollisionShape" type="CollisionShape" parent="RootNode/Wall/StaticBody"]
-shape = SubResource( 2 )
+[node name="StaticBody" type="StaticBody" parent="RootNode/SM_Wall"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RootNode/SM_Wall/StaticBody"]
+shape = SubResource( 28 )
