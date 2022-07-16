@@ -9,17 +9,12 @@ export var look_sensitivity = 0.3
 onready var head = $Head
 onready var camera = $Head/Camera
 
-var target
-var space_state
 var velocity = Vector3()
 var camera_x_rotation = 0
 
 func _input(event: InputEvent) -> void:
 	update_head_position(event, head, camera, look_sensitivity, camera_x_rotation)
-
-func _ready() -> void:
-	space_state = get_world().direct_space_state
-		
+	
 func _physics_process(delta: float) -> void:
 	var direction = Vector3()
 	var head_basis = head.get_global_transform().basis
