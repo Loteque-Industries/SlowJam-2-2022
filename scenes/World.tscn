@@ -1,13 +1,14 @@
-<<<<<<< HEAD
-[gd_scene load_steps=26 format=2]
-=======
-[gd_scene load_steps=37 format=2]
->>>>>>> parent of 07d15ee (import Box, Clipboard, Syringe, clock.)
+[gd_scene load_steps=39 format=2]
 
-[ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://node_script/interactable_head_area.gd" type="Script" id=1]
 [ext_resource path="res://methods/interactable.gd" type="Script" id=2]
+[ext_resource path="res://http_request_demo.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://node_script/guard.gd" type="Script" id=5]
+[ext_resource path="res://node_script/TextBox.gd" type="Script" id=6]
+[ext_resource path="res://data/font/Press_Start_2P_Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=8]
+[ext_resource path="res://node_script/interactable_head.gd" type="Script" id=9]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material_007.material" type="Material" id=10]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material.material" type="Material" id=11]
 [ext_resource path="res://scenes/Window.tscn" type="PackedScene" id=12]
@@ -18,6 +19,10 @@
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/Ceiling.tscn" type="PackedScene" id=18]
 [ext_resource path="res://086_hdrmaps_com_free.exr" type="Texture" id=19]
+[ext_resource path="res://scenes/Box.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/Clipboard.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/Wall Clock.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Syringe.tscn" type="PackedScene" id=23]
 
 [sub_resource type="PanoramaSky" id=27]
 panorama = ExtResource( 19 )
@@ -38,13 +43,6 @@ albedo_color = Color( 0.921569, 0.054902, 0.054902, 1 )
 
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
-<<<<<<< HEAD
-=======
-[sub_resource type="CubeMesh" id=4]
-
-[sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.235294, 0.164706, 0.0509804, 1 )
 
 [sub_resource type="CapsuleShape" id=24]
 radius = 0.75
@@ -74,7 +72,6 @@ albedo_texture = SubResource( 11 )
 size = 39
 font_data = ExtResource( 7 )
 
->>>>>>> parent of 07d15ee (import Box, Clipboard, Syringe, clock.)
 [sub_resource type="ArrayMesh" id=13]
 blend_shape_mode = 0
 surfaces/0 = {
@@ -116,6 +113,8 @@ environment = SubResource( 28 )
 transform = Transform( 0.832254, -1.24016e-08, -0.554394, 0.200401, 0.932381, 0.300842, 0.516906, -0.361478, 0.775978, -0.166861, 9.69001, 0 )
 light_color = Color( 0.643137, 0.643137, 0.643137, 1 )
 light_energy = 1.715
+shadow_enabled = true
+shadow_color = Color( 0.290196, 0, 0.25098, 1 )
 
 [node name="PauseController" parent="." instance=ExtResource( 8 )]
 
@@ -133,99 +132,17 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="Room/InteractableButton/StaticBody"]
 shape = SubResource( 2 )
 
-[node name="Crate" type="MeshInstance" parent="Room"]
-transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -2.36595, 1.71866, 11.4269 )
-visible = false
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="Room/Crate"]
-collision_layer = 2
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Crate/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="Crate2" type="MeshInstance" parent="Room"]
-transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -1.33541, 1.71866, 7.53925 )
-visible = false
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="Room/Crate2"]
-collision_layer = 2
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Crate2/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="Crate3" type="MeshInstance" parent="Room"]
-transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -1.70353, 3.70884, 6.96023 )
-visible = false
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="Room/Crate3"]
-collision_layer = 2
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Crate3/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="Crate4" type="MeshInstance" parent="Room"]
-transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -1.33541, 1.71866, -0.512374 )
-visible = false
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="Room/Crate4"]
-collision_layer = 2
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Crate4/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="Crate5" type="MeshInstance" parent="Room"]
-transform = Transform( -1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, -0.0550764, 1.71866, -12.9214 )
-visible = false
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="Room/Crate5"]
-collision_layer = 2
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Crate5/StaticBody"]
-shape = SubResource( 2 )
-
 [node name="Player" parent="Room" instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.55, 17.459 )
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.755914, 17.4591 )
 
-<<<<<<< HEAD
-[node name="Guard" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( -3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 2.626, 0.95, 14.017 )
-=======
 [node name="UI" type="Control" parent="Room/Player"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="InteractionLabel" type="Label" parent="Room/Player/UI"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -106.0
-margin_top = -80.0
-margin_right = 106.0
-text = "Press E to Interact"
-align = 1
-valign = 1
-
-[node name="Guard" type="KinematicBody" parent="Room" groups=["Player"]]
+[node name="Guard" type="KinematicBody" parent="Room" groups=["Enemy"]]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.62577, 0.742851, 14.0166 )
-visible = false
 script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Room/Guard"]
@@ -304,7 +221,6 @@ script = ExtResource( 6 )
 [node name="LineEdit" type="LineEdit" parent="Room/Guard/IteractableHead/UIPlayerInput/TextBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
->>>>>>> parent of 07d15ee (import Box, Clipboard, Syringe, clock.)
 
 [node name="TrashBin" type="Spatial" parent="Room"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.83206, 0.199999, 12.396 )
@@ -611,7 +527,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
 
 [node name="CeilingGroup" type="Spatial" parent="Room"]
-visible = false
 
 [node name="CeilingRow" type="Spatial" parent="Room/CeilingGroup"]
 
@@ -787,7 +702,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 16 )
 [node name="Ceiling6" parent="Room/CeilingGroup/CeilingRow5" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 20 )
 
-<<<<<<< HEAD
 [node name="Box" parent="Room" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45687, 0, 0 )
 
@@ -809,11 +723,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68958, 1.94001, -0.202903 )
 [node name="Syringe" parent="Room" instance=ExtResource( 23 )]
 transform = Transform( 0.991214, 0.0597594, 0.118002, -0.0567828, 0.997982, -0.0284301, -0.119463, 0.0214798, 0.992606, -2.39647, 0.823449, 0.182384 )
 
-[editable path="Room/Box2"]
-=======
 [connection signal="request_completed" from="Room/Guard/IteractableHead/HTTPRequestDemo" to="Room/Guard/IteractableHead" method="_on_HTTPRequestDemo_request_completed"]
 [connection signal="request_completed" from="Room/Guard/IteractableHead/HTTPRequestDemo" to="Room/Guard/IteractableHead/HTTPRequestDemo" method="_on_HTTPRequest_request_completed"]
 [connection signal="text_entered" from="Room/Guard/IteractableHead/UIPlayerInput/TextBox/LineEdit" to="Room/Guard/IteractableHead" method="_on_LineEdit_text_entered"]
 [connection signal="text_entered" from="Room/Guard/IteractableHead/UIPlayerInput/TextBox/LineEdit" to="Room/Guard/IteractableHead/HTTPRequestDemo" method="_on_LineEdit_text_entered"]
 [connection signal="text_entered" from="Room/Guard/IteractableHead/UIPlayerInput/TextBox/LineEdit" to="Room/Guard/IteractableHead/UIPlayerInput/TextBox" method="_on_LineEdit_text_entered"]
->>>>>>> parent of 07d15ee (import Box, Clipboard, Syringe, clock.)
+
+[editable path="Room/Box2"]
