@@ -8,7 +8,7 @@ export var look_sensitivity = 0.3
 
 onready var head = $Head
 onready var camera = $Head/Camera
-
+onready var arm_camera = $Head/Camera/ViewportContainer/Viewport/ArmCam
 var velocity = Vector3()
 var camera_x_rotation = 0
 
@@ -21,7 +21,10 @@ var picked_up = null
 
 func _input(event: InputEvent) -> void:
 	update_head_position(event, head, camera, look_sensitivity, camera_x_rotation)
-	
+
+func _process(delta: float) -> void:
+	arm_camera.global_transform = camera.global_transform
+
 func _physics_process(delta: float) -> void:
 	var direction = Vector3()
 	var head_basis = head.get_global_transform().basis
