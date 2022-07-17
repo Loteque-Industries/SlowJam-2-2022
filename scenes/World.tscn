@@ -1,7 +1,6 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Guard.tscn" type="PackedScene" id=1]
-[ext_resource path="res://methods/interactable.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=8]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material_007.material" type="Material" id=10]
@@ -30,19 +29,6 @@ ambient_light_energy = 0.6
 tonemap_mode = 3
 tonemap_exposure = 0.7
 tonemap_white = 7.0
-
-[sub_resource type="CubeMesh" id=31]
-
-[sub_resource type="ConcavePolygonShape" id=32]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
-[sub_resource type="CubeMesh" id=1]
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.921569, 0.054902, 0.054902, 1 )
-
-[sub_resource type="ConcavePolygonShape" id=2]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
 [sub_resource type="ArrayMesh" id=13]
 blend_shape_mode = 0
@@ -76,12 +62,9 @@ surfaces/0 = {
 "vertex_count": 893
 }
 
-[sub_resource type="CubeMesh" id=29]
-
-[sub_resource type="ConcavePolygonShape" id=30]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
 [node name="World" type="Spatial"]
+
+[node name="PauseController" parent="." instance=ExtResource( 8 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 28 )
@@ -93,59 +76,7 @@ light_energy = 1.715
 shadow_enabled = true
 shadow_color = Color( 0.290196, 0, 0.25098, 1 )
 
-[node name="PauseController" parent="." instance=ExtResource( 8 )]
-
 [node name="Room" type="Room" parent="."]
-
-[node name="MeshInstance2" type="MeshInstance" parent="Room"]
-transform = Transform( 10, 0, 0, 0, 0.2, 0, 0, 0, 10, 30.946, 0, 0 )
-mesh = SubResource( 31 )
-skeleton = NodePath("")
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="Room/MeshInstance2"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/MeshInstance2/StaticBody"]
-shape = SubResource( 32 )
-
-[node name="InteractableButton" type="MeshInstance" parent="Room"]
-transform = Transform( -0.4, 6.03983e-08, 2.64009e-15, 0, -1.74846e-08, 0.4, 6.03983e-08, 0.4, 1.74846e-08, 0, 1.71866, -19.9555 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
-
-[node name="StaticBody" type="StaticBody" parent="Room/InteractableButton"]
-collision_layer = 2
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/InteractableButton/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="Player" parent="Room" instance=ExtResource( 4 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.54926, 0.755914, 12.5424 )
-
-[node name="UI" type="Control" parent="Room/Player"]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="Guard" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( -0.697992, 0, 0.0529846, 0, 0.7, 0, -0.0529846, 0, -0.697992, 2.561, 0.499563, 0.649246 )
-
-[node name="TrashBin" type="Spatial" parent="Room"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.83206, 0.199999, 12.396 )
-
-[node name="RootNode" type="Spatial" parent="Room/TrashBin"]
-
-[node name="Trash Bin" type="MeshInstance" parent="Room/TrashBin/RootNode"]
-transform = Transform( 100, 0, 0, 0, -3.57628e-05, 100, 0, -100, -3.57628e-05, 0, 0.515504, -0.878395 )
-mesh = SubResource( 13 )
-material/0 = null
-
-[node name="MedTrash" type="MeshInstance" parent="Room/TrashBin/RootNode"]
-transform = Transform( 40.1473, 0, 0, 0, -1.43578e-05, 40.1473, 0, -40.1473, -1.43578e-05, 0.335863, 0.360578, 0.909546 )
-mesh = SubResource( 14 )
-material/0 = null
 
 [node name="FloorGroup" type="Spatial" parent="Room"]
 
@@ -437,7 +368,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
 
 [node name="CeilingGroup" type="Spatial" parent="Room"]
-visible = false
 
 [node name="CeilingRow" type="Spatial" parent="Room/CeilingGroup"]
 
@@ -613,77 +543,35 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 16 )
 [node name="Ceiling6" parent="Room/CeilingGroup/CeilingRow5" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 20 )
 
+[node name="Player" parent="Room" instance=ExtResource( 4 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.54926, 0.755914, 12.5424 )
+
+[node name="UI" type="Control" parent="Room/Player"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Guard" parent="Room" instance=ExtResource( 1 )]
+transform = Transform( -0.697992, 0, 0.0529846, 0, 0.7, 0, -0.0529846, 0, -0.697992, 2.561, 0.499563, 0.649246 )
+
+[node name="TrashBin" type="Spatial" parent="Room"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.83206, 0.199999, 12.396 )
+
+[node name="RootNode" type="Spatial" parent="Room/TrashBin"]
+
+[node name="Trash Bin" type="MeshInstance" parent="Room/TrashBin/RootNode"]
+transform = Transform( 100, 0, 0, 0, -3.57628e-05, 100, 0, -100, -3.57628e-05, 0, 0.515504, -0.878395 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="MedTrash" type="MeshInstance" parent="Room/TrashBin/RootNode"]
+transform = Transform( 40.1473, 0, 0, 0, -1.43578e-05, 40.1473, 0, -40.1473, -1.43578e-05, 0.335863, 0.360578, 0.909546 )
+mesh = SubResource( 14 )
+material/0 = null
+
 [node name="Box" parent="Room" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45687, 0, 0 )
-
-[node name="Box2" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 4.28514e-08, 0.980326, -0.197384, 1, -4.37114e-08, 0, -8.62791e-09, -0.197384, -0.980326, -3.66618, 0.410209, 0.438689 )
-
-[node name="Box - Standard" parent="Room/Box2/RootNode" index="0"]
-visible = true
-
-[node name="Box - Rough" parent="Room/Box2/RootNode" index="1"]
-visible = false
-
-[node name="Box3" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 3.48127e-09, 0.0796427, 0.996823, 1, -4.37114e-08, 0, 4.35725e-08, 0.996823, -0.0796427, 2.19929, 0.387051, 9.43535 )
-
-[node name="Box - Standard" parent="Room/Box3/RootNode" index="0"]
-transform = Transform( 40, 5.68434e-14, 4.9738e-14, 2.13163e-14, -1.90735e-06, 40, 5.68434e-14, -40, -1.90735e-06, -5.96046e-08, 0.4, 4.76837e-07 )
-visible = true
-
-[node name="Box - Rough" parent="Room/Box3/RootNode" index="1"]
-visible = false
-
-[node name="Box4" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 3.48127e-09, 0.0796427, 0.996823, 1, -4.37114e-08, 0, 4.35725e-08, 0.996823, -0.0796427, 1.05701, 1.16242, 9.28196 )
-
-[node name="Box - Standard" parent="Room/Box4/RootNode" index="0"]
-transform = Transform( 40, 7.10543e-14, 0, 0, -1.90735e-06, 40, 5.68434e-14, -40, -1.90735e-06, 1.19209e-07, 0.400002, 5.96046e-08 )
-visible = true
-
-[node name="Box - Rough" parent="Room/Box4/RootNode" index="1"]
-visible = false
-
-[node name="Box5" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 3.48127e-09, 0.0796427, 0.996823, 1, -4.37114e-08, 0, 4.35725e-08, 0.996823, -0.0796427, 1.46519, 0.410209, 9.33472 )
-
-[node name="Box - Standard" parent="Room/Box5/RootNode" index="0"]
-transform = Transform( 40, 8.52651e-14, 4.9738e-14, 2.84217e-14, -1.90735e-06, 40, 8.52651e-14, -40, -1.90735e-06, -8.9407e-08, 0.4, 1.90735e-06 )
-visible = true
-
-[node name="Box - Rough" parent="Room/Box5/RootNode" index="1"]
-visible = false
-
-[node name="Box6" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 3.48127e-09, 0.0796427, 0.996823, 1, -4.37114e-08, 0, 4.35725e-08, 0.996823, -0.0796427, 1.7969, 1.16752, 9.37437 )
-
-[node name="Box - Standard" parent="Room/Box6/RootNode" index="0"]
-transform = Transform( 40, 7.10543e-14, 0, 0, -1.90735e-06, 40, 5.68434e-14, -40, -1.90735e-06, 1.19209e-07, 0.400001, 4.76837e-07 )
-visible = true
-
-[node name="Box - Rough" parent="Room/Box6/RootNode" index="1"]
-visible = false
-
-[node name="Box8" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 3.48127e-09, 0.0796427, 0.996823, 1, -4.37114e-08, 0, 4.35725e-08, 0.996823, -0.0796427, 2.3748, 1.15131, 9.47369 )
-
-[node name="Box - Standard" parent="Room/Box8/RootNode" index="0"]
-transform = Transform( 40, 7.10543e-14, 0, 0, -1.90735e-06, 40, 5.68434e-14, -40, -1.90735e-06, 1.19209e-07, 0.400001, 4.76837e-07 )
-visible = true
-
-[node name="Box - Rough" parent="Room/Box8/RootNode" index="1"]
-visible = false
-
-[node name="Box7" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 3.48127e-09, 0.0796427, 0.996823, 1, -4.37114e-08, 0, 4.35725e-08, 0.996823, -0.0796427, 0.707751, 0.435977, 9.23869 )
-
-[node name="Box - Standard" parent="Room/Box7/RootNode" index="0"]
-transform = Transform( 40, 1.13687e-13, 4.9738e-14, 3.55271e-14, -1.90735e-06, 40, 1.13687e-13, -40, -1.90735e-06, -0.0381746, 0.400001, -1.43051e-06 )
-visible = true
-
-[node name="Box - Rough" parent="Room/Box7/RootNode" index="1"]
-visible = false
 
 [node name="Clipboard" parent="Room" instance=ExtResource( 21 )]
 transform = Transform( -3.99097e-08, -0.913027, 0.4079, 1, -4.37114e-08, 0, 1.78299e-08, 0.4079, 0.913027, -2.18562, 0.811079, 0 )
@@ -693,21 +581,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68958, 1.94001, -0.202903 )
 
 [node name="Syringe" parent="Room" instance=ExtResource( 23 )]
 transform = Transform( 0.991214, 0.0597594, 0.118002, -0.0567828, 0.997982, -0.0284301, -0.119463, 0.0214798, 0.992606, -2.39647, 0.823449, 0.182384 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Room"]
-transform = Transform( 0.9, 0, 0, 0, 1, 0, 0, 0, 0.12, 1.63321, 0.476351, 9.79543 )
-mesh = SubResource( 29 )
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="Room/MeshInstance"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/MeshInstance/StaticBody"]
-shape = SubResource( 30 )
-
-[editable path="Room/Box2"]
-[editable path="Room/Box3"]
-[editable path="Room/Box4"]
-[editable path="Room/Box5"]
-[editable path="Room/Box6"]
-[editable path="Room/Box8"]
-[editable path="Room/Box7"]
