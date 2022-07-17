@@ -2,7 +2,7 @@ extends KinematicBody
 
 onready var door_guard_data = load("res://data/actor/guard.tres")
 
-export var speed = 10
+export var speed = 5
 var space_state
 var target
 
