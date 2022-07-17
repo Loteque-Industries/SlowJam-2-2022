@@ -1,6 +1,6 @@
 extends RigidBody
 
-const highlight = preload("res://visuals/highlight.tres")
+const Highlight = preload("res://visuals/highlight.tres")
 
 onready var original_parent = get_parent()
 onready var original_collision_layer = collision_layer
@@ -23,7 +23,7 @@ func _physics_process(delta):
 
 func highlight(val):
 	if val:
-		$Visuals.material_override = highlight
+		$Visuals.material_override = Highlight
 	else:
 		$Visuals.material_override = null
 

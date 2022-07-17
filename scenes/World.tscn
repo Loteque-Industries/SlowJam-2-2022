@@ -1,6 +1,8 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Guard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/OpTable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Guard.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=8]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material_007.material" type="Material" id=10]
@@ -553,7 +555,35 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Guard" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( -0.697992, 0, 0.0529846, 0, 0.7, 0, -0.0529846, 0, -0.697992, 2.561, 0.499563, 0.649246 )
+transform = Transform( 0.383172, 0, 0.585815, 0, 0.7, 0, -0.585815, 0, 0.383172, 2.561, 0.499563, 0.649246 )
+script = ExtResource( 3 )
+wait_time = 10
+home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
+
+[node name="Guard2" parent="Room" instance=ExtResource( 1 )]
+transform = Transform( 0.383172, 0, 0.585815, 0, 0.7, 0, -0.585815, 0, 0.383172, -1.50618, 0.499563, -7.50466 )
+script = ExtResource( 3 )
+wait_time = 5
+speed = 300
+home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
+
+[node name="OpTable" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( 0.111746, 0, -0.993737, 0, 1, 0, 0.993737, 0, 0.111746, 5.27247, 0, -0.484475 )
+
+[node name="OpTable2" parent="Room" instance=ExtResource( 2 )]
+transform = Transform( 0.286073, 0, 0.958208, 0, 1, 0, -0.958208, 0, 0.286073, 4.85501, 0, -10.4059 )
+
+[node name="Box" parent="Room" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45687, 0, 0 )
+
+[node name="Clipboard" parent="Room" instance=ExtResource( 21 )]
+transform = Transform( -3.99097e-08, -0.913027, 0.4079, 1, -4.37114e-08, 0, 1.78299e-08, 0.4079, 0.913027, -2.18562, 0.811079, 0 )
+
+[node name="Wall Clock" parent="Room" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68958, 1.94001, -0.202903 )
+
+[node name="Syringe" parent="Room" instance=ExtResource( 23 )]
+transform = Transform( 0.991214, 0.0597594, 0.118002, -0.0567828, 0.997982, -0.0284301, -0.119463, 0.0214798, 0.992606, -2.39647, 0.823449, 0.182384 )
 
 [node name="TrashBin" type="Spatial" parent="Room"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.83206, 0.199999, 12.396 )
@@ -569,15 +599,3 @@ material/0 = null
 transform = Transform( 40.1473, 0, 0, 0, -1.43578e-05, 40.1473, 0, -40.1473, -1.43578e-05, 0.335863, 0.360578, 0.909546 )
 mesh = SubResource( 14 )
 material/0 = null
-
-[node name="Box" parent="Room" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45687, 0, 0 )
-
-[node name="Clipboard" parent="Room" instance=ExtResource( 21 )]
-transform = Transform( -3.99097e-08, -0.913027, 0.4079, 1, -4.37114e-08, 0, 1.78299e-08, 0.4079, 0.913027, -2.18562, 0.811079, 0 )
-
-[node name="Wall Clock" parent="Room" instance=ExtResource( 22 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68958, 1.94001, -0.202903 )
-
-[node name="Syringe" parent="Room" instance=ExtResource( 23 )]
-transform = Transform( 0.991214, 0.0597594, 0.118002, -0.0567828, 0.997982, -0.0284301, -0.119463, 0.0214798, 0.992606, -2.39647, 0.823449, 0.182384 )

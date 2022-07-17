@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://methods/actor/interaction.gd" type="Script" id=1]
 [ext_resource path="res://node_script/player.gd" type="Script" id=2]
@@ -14,6 +14,8 @@ mid_height = 1.25
 
 [sub_resource type="SpatialMaterial" id=26]
 albedo_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+
+[sub_resource type="SphereShape" id=27]
 
 [node name="Player" type="KinematicBody" groups=["Player"]]
 transform = Transform( -3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0, 0, 0 )
@@ -70,3 +72,9 @@ margin_right = 106.0
 text = "Press E to Interact"
 align = 1
 valign = 1
+
+[node name="PickArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="PickArea"]
+transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0 )
+shape = SubResource( 27 )
