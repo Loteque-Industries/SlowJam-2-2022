@@ -22,9 +22,7 @@ surfaces/0 = {
 [sub_resource type="SpatialMaterial" id=31]
 albedo_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="CylinderShape" id=30]
-radius = 1.03943
-height = 2.31406
+[sub_resource type="BoxShape" id=32]
 
 [node name="Syringe" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.277134, 0 )
@@ -44,8 +42,4 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="RootNode"]
 transform = Transform( 0.02, 0, 0, 0, -3.93403e-09, -0.05, 0, 0.09, -2.18557e-09, 0, 0, 0.0796242 )
-shape = SubResource( 30 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="RootNode"]
-transform = Transform( 0.02, 0, 0, 0, -3.93403e-09, -0.05, 0, 0.09, -2.18557e-09, 0, 0, 0.0796242 )
-shape = SubResource( 30 )
+shape = SubResource( 32 )

@@ -1,4 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://meshes/Level Design Objects/Operating Table/OpTableMat.png" type="Texture" id=1]
+[ext_resource path="res://meshes/Level Design Objects/Operating Table/BeltsMat.png" type="Texture" id=2]
+[ext_resource path="res://meshes/Level Design Objects/Operating Table/AdditionsMat.png" type="Texture" id=3]
+[ext_resource path="res://meshes/Level Design Objects/Operating Table/StirrupMat.png" type="Texture" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 blend_shape_mode = 0
@@ -15,6 +20,9 @@ surfaces/0 = {
 "vertex_count": 2059
 }
 
+[sub_resource type="SpatialMaterial" id=30]
+albedo_texture = ExtResource( 1 )
+
 [sub_resource type="ArrayMesh" id=2]
 blend_shape_mode = 0
 surfaces/0 = {
@@ -29,6 +37,9 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 2711
 }
+
+[sub_resource type="SpatialMaterial" id=31]
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="ArrayMesh" id=3]
 blend_shape_mode = 0
@@ -45,6 +56,9 @@ surfaces/0 = {
 "vertex_count": 1766
 }
 
+[sub_resource type="SpatialMaterial" id=32]
+albedo_texture = ExtResource( 2 )
+
 [sub_resource type="ArrayMesh" id=4]
 blend_shape_mode = 0
 surfaces/0 = {
@@ -60,6 +74,9 @@ surfaces/0 = {
 "vertex_count": 1902
 }
 
+[sub_resource type="SpatialMaterial" id=33]
+albedo_texture = ExtResource( 4 )
+
 [sub_resource type="BoxShape" id=29]
 extents = Vector3( 0.556971, 1.10281, 1.20752 )
 
@@ -71,22 +88,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499654, 0, -0.484475 )
 [node name="OpTable" type="MeshInstance" parent="RootNode"]
 transform = Transform( 13.6662, 0, 0, 0, -4.8874e-06, 13.6662, 0, -13.6662, -4.8874e-06, 0, 1.03663, 1.15955 )
 mesh = SubResource( 1 )
-material/0 = null
+material/0 = SubResource( 30 )
 
 [node name="Additions" type="MeshInstance" parent="RootNode/OpTable"]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 31 )
 
 [node name="Belts" type="MeshInstance" parent="RootNode/OpTable"]
 transform = Transform( 1.99774, 0, 0, 0, 1.99774, 0, 0, 0, 1.99774, 0, 0.0848484, 0.0284636 )
 mesh = SubResource( 3 )
-material/0 = null
+material/0 = SubResource( 32 )
 
 [node name="StirrupThang" type="MeshInstance" parent="RootNode"]
 transform = Transform( 18.9689, 0, 0, 0, -6.78382e-06, 18.9689, 0, -18.9689, -6.78382e-06, 1.33328, 0.758444, 0.871819 )
 visible = false
 mesh = SubResource( 4 )
-material/0 = null
+material/0 = SubResource( 33 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RootNode"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12412 )

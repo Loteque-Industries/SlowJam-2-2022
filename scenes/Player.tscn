@@ -155,6 +155,7 @@ mouse_filter = 2
 pause_mode = 2
 size = Vector2( 1024, 600 )
 transparent_bg = true
+handle_input_locally = false
 render_target_update_mode = 3
 gui_disable_input = true
 
