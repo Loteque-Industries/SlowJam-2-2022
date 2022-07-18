@@ -87,7 +87,7 @@ albedo_color = Color( 0.709804, 0.709804, 0.709804, 1 )
 [sub_resource type="SphereShape" id=33]
 
 [node name="Player" type="KinematicBody" groups=["Player"]]
-transform = Transform( -3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0, 0, 0 )
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 script = ExtResource( 2 )
 throw_force = 50.0
 
@@ -97,7 +97,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59118, 0 )
 [node name="Camera" type="Camera" parent="Head"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 0, 0 )
 cull_mask = 1048573
-far = 650.0
 
 [node name="AlienArmsRig" type="Spatial" parent="Head/Camera"]
 pause_mode = 2
@@ -179,7 +178,7 @@ gui_disable_input = true
 
 [node name="ArmCam" type="Camera" parent="Head/Camera/ViewportContainer/Viewport"]
 pause_mode = 2
-transform = Transform( -0.0131245, 0, 0.999914, 0, 1, 0, -0.999914, 0, -0.0131245, 0, 1.11899, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11899, 0 )
 cull_mask = 2
 current = true
 
