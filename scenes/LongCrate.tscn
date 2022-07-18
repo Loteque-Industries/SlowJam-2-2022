@@ -30,7 +30,7 @@ extents = Vector3( 0.580493, 0.424935, 0.929203 )
 [node name="LongCrate" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0702136, 0.60069, 0.822852 )
 
-[node name="RootNode" type="KinematicBody" parent="." groups=["Home"]]
+[node name="RootNode" type="StaticBody" parent="."]
 
 [node name="Visuals" type="MeshInstance" parent="RootNode"]
 transform = Transform( 56.8163, 0, 0, 0, -2.03191e-05, 56.8163, 0, -56.8163, -2.03191e-05, 0, 0, 0 )

@@ -26,9 +26,9 @@ albedo_color = Color( 1, 1, 1, 0 )
 extents = Vector3( 0.517428, 1.04868, 0.586255 )
 
 [node name="RollingModelShelvieCabinet" type="Spatial"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.29214, 1.09325, 5.59299 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
-[node name="RootNode" type="KinematicBody" parent="." groups=["Home"]]
+[node name="RootNode" type="StaticBody" parent="."]
 
 [node name="Visuals" type="MeshInstance" parent="RootNode"]
 transform = Transform( 50.1, -2.26187e-06, -1.67743e-13, 0, -2.57897e-06, 100.1, -1.92067e-06, -59, -4.37551e-06, 0, 0, 0 )
