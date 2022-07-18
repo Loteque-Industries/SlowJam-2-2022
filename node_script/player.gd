@@ -8,13 +8,23 @@ export var look_sensitivity = 0.3
 
 onready var head = $Head
 onready var camera = $Head/Camera
-
+onready var arm_camera = $Head/Camera/ViewportContainer/Viewport/ArmCam
 var velocity = Vector3()
 var camera_x_rotation = 0
 
+export var throw_force: float = 200
+
+# OBJECT
+var collider = null
+var previous_collider = null
+var picked_up = null
+
 func _input(event: InputEvent) -> void:
 	update_head_position(event, head, camera, look_sensitivity, camera_x_rotation)
-	
+
+func _process(delta: float) -> void:
+	arm_camera.global_transform = camera.global_transform
+
 func _physics_process(delta: float) -> void:
 	var direction = Vector3()
 	var head_basis = head.get_global_transform().basis
@@ -43,3 +53,41 @@ func _physics_process(delta: float) -> void:
 	var slides = get_slide_count()
 	if(slides):
 		slope(slides, velocity)
+
+	if $Head/Camera/RayCast.is_colliding() && !picked_up:
+		collider = $Head/Camera/RayCast.get_collider()
+		if collider != previous_collider && previous_collider:
+			if previous_collider.has_method("highlight"):
+				previous_collider.highlight(false)
+			previous_collider = collider
+		else:
+			previous_collider = collider
+			if collider.has_method("highlight"):
+				collider.highlight(true)
+
+	if Input.is_action_just_pressed("pick"):
+		if !collider or (collider && !collider.has_method("pick_up")):
+			var bodies = $PickArea.get_overlapping_bodies()
+			if !bodies: return
+			var smallest_dist = 100000
+			var closest_object = null
+			for body in bodies:
+				var dist = global_transform.origin.distance_to(body.global_transform.origin)
+				if dist < smallest_dist && body.has_method("pick_up"): 
+					smallest_dist = dist
+					closest_object = body
+			if picked_up: return
+			elif closest_object:
+				closest_object.pick_up($Head/Camera/PickPoint)
+				closest_object.highlight(false)
+				picked_up = closest_object
+		else:
+			if picked_up: return
+			elif collider.has_method("pick_up"):
+				collider.pick_up($Head/Camera/PickPoint)
+				collider.highlight(false)
+				picked_up = collider
+	if Input.is_action_just_pressed("throw"):
+		if !picked_up: return
+		picked_up.let_go(-$Head/Camera/PickPoint.global_transform.basis.z * throw_force)
+		picked_up = null

@@ -9,7 +9,7 @@ font_path = "res://data/font/Press_Start_2P_Regular.ttf"
 size = 24
 font_data = SubResource( 2 )
 
-[node name="PauseController" type="Node"]
+[node name="PauseController" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="MainMenu" type="ColorRect" parent="."]
@@ -33,8 +33,8 @@ margin_right = 964.0
 margin_bottom = 140.0
 
 [node name="PlayButton" type="MenuButton" parent="MainMenu/MarginContainer/VBoxContainer"]
-margin_right = 88.0
-margin_bottom = 61.0
+margin_right = 108.0
+margin_bottom = 30.0
 focus_mode = 2
 size_flags_horizontal = 0
 custom_fonts/font = SubResource( 1 )

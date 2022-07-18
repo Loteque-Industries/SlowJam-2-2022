@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://meshes/Level Design Objects/Syringe/Material_004.material" type="Material" id=1]
+[ext_resource path="res://node_script/Pickable.gd" type="Script" id=2]
 
 [sub_resource type="ArrayMesh" id=29]
 blend_shape_mode = 0
@@ -18,12 +19,27 @@ surfaces/0 = {
 "vertex_count": 3559
 }
 
+[sub_resource type="SpatialMaterial" id=31]
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="BoxShape" id=32]
+
 [node name="Syringe" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.277134, 0 )
 
-[node name="RootNode" type="Spatial" parent="."]
+[node name="RootNode" type="RigidBody" parent="."]
+script = ExtResource( 2 )
+
+[node name="Visuals" type="MeshInstance" parent="RootNode"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+mesh = SubResource( 29 )
+material/0 = SubResource( 31 )
 
 [node name="Syringe" type="MeshInstance" parent="RootNode"]
-transform = Transform( 0.360558, 2.13288, 2.07866, -2.95803, 0.500048, 2.08373e-08, -0.346476, -2.04958, 2.16314, 0, 0, 0 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 mesh = SubResource( 29 )
 material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="RootNode"]
+transform = Transform( 0.02, 0, 0, 0, -3.93403e-09, -0.05, 0, 0.09, -2.18557e-09, 0, 0, 0.0796242 )
+shape = SubResource( 32 )
