@@ -49,6 +49,9 @@ func pick_up(by):
 	# keep the original transform
 	global_transform = original_transform
 	
+	# add it to projectile group
+	add_to_group("Projectile")
+	
 func let_go(impulse = Vector3(0.0, 0.0, 0.0)):
 	if picked_up_by:
 		# get our current global transform
