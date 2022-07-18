@@ -1,7 +1,7 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Guard.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/OpTable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Node.tscn" type="PackedScene" id=2]
 [ext_resource path="res://node_script/Guard.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/TrashBin.tscn" type="PackedScene" id=5]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/Cabinet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Scalpel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/LongCrate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Scissors.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Window.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=13]
@@ -23,7 +24,7 @@
 [ext_resource path="res://scenes/Wall Clock.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/Syringe.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/Bone Saw.tscn" type="PackedScene" id=24]
-[ext_resource path="res://meshes/Level Design Objects/Crate/LongCrateMat.jpg" type="Texture" id=27]
+[ext_resource path="res://scenes/OpTable.tscn" type="PackedScene" id=26]
 
 [sub_resource type="PanoramaSky" id=27]
 panorama = ExtResource( 19 )
@@ -36,31 +37,6 @@ ambient_light_energy = 0.6
 tonemap_mode = 3
 tonemap_exposure = 0.7
 tonemap_white = 7.0
-
-[sub_resource type="ArrayMesh" id=1]
-blend_shape_mode = 0
-surfaces/0 = {
-"aabb": AABB( -0.01, -0.01, -0.01, 0.02001, 0.0321833, 0.0148712 ),
-"array_data": PoolByteArray( 10, 215, 35, 60, 210, 164, 181, 60, 92, 74, 159, 59, 127, 0, 127, 127, 238, 32, 238, 32, 238, 32, 238, 32, 10, 215, 35, 60, 10, 215, 35, 188, 10, 215, 35, 188, 127, 0, 127, 127, 105, 51, 216, 55, 105, 51, 216, 55, 10, 215, 35, 60, 10, 215, 35, 188, 92, 74, 159, 59, 127, 0, 127, 127, 238, 32, 216, 55, 238, 32, 216, 55, 10, 215, 35, 60, 210, 164, 181, 60, 10, 215, 35, 188, 127, 0, 127, 127, 105, 51, 238, 32, 105, 51, 238, 32, 10, 215, 35, 188, 210, 164, 181, 60, 10, 215, 35, 188, 129, 0, 127, 127, 241, 58, 236, 59, 241, 58, 236, 59, 10, 215, 35, 188, 10, 215, 35, 188, 92, 74, 159, 59, 129, 0, 127, 127, 42, 57, 19, 56, 42, 57, 19, 56, 10, 215, 35, 188, 10, 215, 35, 188, 10, 215, 35, 188, 129, 0, 127, 127, 241, 58, 19, 56, 241, 58, 19, 56, 10, 215, 35, 188, 210, 164, 181, 60, 92, 74, 159, 59, 129, 0, 127, 127, 42, 57, 236, 59, 42, 57, 236, 59, 10, 215, 35, 60, 210, 164, 181, 60, 92, 74, 159, 59, 0, 0, 129, 63, 238, 32, 236, 59, 238, 32, 236, 59, 10, 215, 35, 188, 10, 215, 35, 188, 92, 74, 159, 59, 0, 0, 129, 63, 239, 52, 19, 56, 239, 52, 19, 56, 10, 215, 35, 188, 210, 164, 181, 60, 92, 74, 159, 59, 0, 0, 129, 63, 239, 52, 236, 59, 239, 52, 236, 59, 10, 215, 35, 60, 10, 215, 35, 188, 92, 74, 159, 59, 0, 0, 129, 63, 238, 32, 19, 56, 238, 32, 19, 56, 10, 215, 35, 60, 10, 215, 35, 188, 10, 215, 35, 188, 0, 129, 127, 127, 182, 57, 32, 50, 182, 57, 32, 50, 10, 215, 35, 188, 10, 215, 35, 188, 92, 74, 159, 59, 0, 129, 127, 127, 224, 55, 216, 55, 224, 55, 216, 55, 10, 215, 35, 60, 10, 215, 35, 188, 92, 74, 159, 59, 0, 129, 127, 127, 224, 55, 32, 50, 224, 55, 32, 50, 10, 215, 35, 188, 10, 215, 35, 188, 10, 215, 35, 188, 0, 129, 127, 127, 182, 57, 216, 55, 182, 57, 216, 55, 10, 215, 35, 188, 210, 164, 181, 60, 10, 215, 35, 188, 0, 127, 127, 127, 145, 55, 32, 50, 145, 55, 32, 50, 10, 215, 35, 60, 210, 164, 181, 60, 92, 74, 159, 59, 0, 127, 127, 127, 3, 52, 216, 55, 3, 52, 216, 55, 10, 215, 35, 188, 210, 164, 181, 60, 92, 74, 159, 59, 0, 127, 127, 127, 3, 52, 32, 50, 3, 52, 32, 50, 10, 215, 35, 60, 210, 164, 181, 60, 10, 215, 35, 188, 0, 127, 127, 127, 145, 55, 216, 55, 145, 55, 216, 55, 10, 215, 35, 188, 210, 164, 181, 60, 10, 215, 35, 188, 127, 127, 127, 63, 62, 53, 236, 59, 62, 53, 236, 59, 10, 215, 35, 60, 10, 215, 35, 188, 10, 215, 35, 188, 127, 127, 127, 63, 3, 57, 19, 56, 3, 57, 19, 56, 10, 215, 35, 60, 210, 164, 181, 60, 10, 215, 35, 188, 127, 127, 127, 63, 3, 57, 236, 59, 3, 57, 236, 59, 10, 215, 35, 188, 10, 215, 35, 188, 10, 215, 35, 188, 127, 127, 127, 63, 62, 53, 19, 56, 62, 53, 19, 56 ),
-"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 3, 0, 4, 0, 5, 0, 6, 0, 5, 0, 4, 0, 7, 0, 8, 0, 9, 0, 10, 0, 9, 0, 8, 0, 11, 0, 12, 0, 13, 0, 14, 0, 13, 0, 12, 0, 15, 0, 16, 0, 17, 0, 18, 0, 17, 0, 16, 0, 19, 0, 20, 0, 21, 0, 22, 0, 21, 0, 20, 0, 23, 0 ),
-"blend_shape_data": [  ],
-"format": 2194743,
-"index_count": 36,
-"name": "Material.002",
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-
-[sub_resource type="SpatialMaterial" id=29]
-flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0 )
-
-[sub_resource type="SpatialMaterial" id=30]
-albedo_texture = ExtResource( 27 )
-
-[sub_resource type="BoxShape" id=31]
-extents = Vector3( 0.580493, 0.424935, 0.929203 )
 
 [node name="World" type="Spatial"]
 
@@ -80,6 +56,9 @@ shadow_color = Color( 0.290196, 0, 0.25098, 1 )
 [node name="Room" type="Room" parent="."]
 
 [node name="FloorGroup" type="Spatial" parent="Room"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FloorRow" type="Spatial" parent="Room/FloorGroup"]
 
@@ -261,6 +240,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
 
 [node name="WallGroup" type="Spatial" parent="Room"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WallGroup" type="Spatial" parent="Room/WallGroup"]
 
@@ -370,6 +352,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
 
 [node name="CeilingGroup" type="Spatial" parent="Room"]
 visible = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CeilingRow" type="Spatial" parent="Room/CeilingGroup"]
 
@@ -561,19 +546,19 @@ mouse_filter = 2
 transform = Transform( 0.383172, 0, 0.585815, 0, 0.7, 0, -0.585815, 0, 0.383172, 3.04888, 0.499563, 6.2561 )
 script = ExtResource( 3 )
 wait_time = 10
-home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
+home = [ NodePath("../OpTable"), NodePath("../OpTable2"), NodePath("../Cabinet") ]
 
 [node name="Guard2" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( 0.383172, 0, 0.585815, 0, 0.7, 0, -0.585815, 0, 0.383172, -1.50618, 0.499563, -7.50466 )
+transform = Transform( 0.383172, 0, 0.585815, 0, 0.7, 0, -0.585815, 0, 0.383172, -1.77201, 0.499563, -7.50466 )
 script = ExtResource( 3 )
 wait_time = 5
 speed = 300
-home = [ NodePath("../OpTable"), NodePath("../OpTable2"), NodePath("../Cabinet"), NodePath("../LongCrate") ]
+home = [ NodePath("../OpTable"), NodePath("../OpTable2"), NodePath("../Cabinet"), NodePath("../LongCrate"), NodePath("../Guard") ]
 
-[node name="OpTable" parent="Room" instance=ExtResource( 2 )]
+[node name="OpTable" parent="Room" instance=ExtResource( 26 )]
 transform = Transform( 0.111746, 0, -0.993737, 0, 1, 0, 0.993737, 0, 0.111746, 5.27247, 0, -0.484475 )
 
-[node name="OpTable2" parent="Room" instance=ExtResource( 2 )]
+[node name="OpTable2" parent="Room" instance=ExtResource( 26 )]
 transform = Transform( 0.286073, 0, 0.958208, 0, 1, 0, -0.958208, 0, 0.286073, 4.85501, 0, -10.4059 )
 
 [node name="Syringe" parent="Room" instance=ExtResource( 23 )]
@@ -610,6 +595,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -9.14207, 0.881431, -5.27113 )
 visible = false
 
 [node name="NormalCrate" parent="Room" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6205, 0.0114492, 2.8649 )
 
 [node name="Scalpel" parent="Room" instance=ExtResource( 9 )]
 
@@ -620,24 +606,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17752, 1.08727, -0.39041 )
 
 [node name="Cabinet" parent="Room" instance=ExtResource( 7 )]
 
-[node name="LongCrate" type="Spatial" parent="Room"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0702136, 0.60069, 0.822852 )
+[node name="LongCrate" parent="Room" instance=ExtResource( 10 )]
 
-[node name="RootNode" type="KinematicBody" parent="Room/LongCrate" groups=["Home"]]
+[node name="NormalCrate3" parent="Room" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55111, -0.147463, 14.6384 )
 
-[node name="Visuals" type="MeshInstance" parent="Room/LongCrate/RootNode"]
-transform = Transform( 56.8163, 0, 0, 0, -2.03191e-05, 56.8163, 0, -56.8163, -2.03191e-05, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 29 )
+[node name="NormalCrate2" parent="Room" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0696, 0.861723, 9.85197 )
 
-[node name="Crate2" type="MeshInstance" parent="Room/LongCrate/RootNode"]
-transform = Transform( 56.8163, 0, 0, 0, -2.03191e-05, 56.8163, 0, -56.8163, -2.03191e-05, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 30 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/LongCrate/RootNode"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.148892, -0.348747 )
-shape = SubResource( 31 )
+[node name="Node" parent="." instance=ExtResource( 2 )]
 
 [editable path="Room/Player"]
 [editable path="Room/Box2"]
