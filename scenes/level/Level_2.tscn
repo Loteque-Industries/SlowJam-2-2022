@@ -1,16 +1,16 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Cabinet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Doorway.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/CheckPoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://086_hdrmaps_com_free.exr" type="Texture" id=7]
 [ext_resource path="res://scenes/LongCrate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Box.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/AIWaypoint.tscn" type="PackedScene" id=13]
-[ext_resource path="res://node_script/Checkpoint.gd" type="Script" id=17]
 [ext_resource path="res://node_script/Level_0.gd" type="Script" id=18]
 [ext_resource path="res://scenes/Bot.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/Ceiling.tscn" type="PackedScene" id=26]
@@ -27,9 +27,6 @@ ambient_light_energy = 0.6
 tonemap_mode = 3
 tonemap_exposure = 0.7
 tonemap_white = 7.0
-
-[sub_resource type="BoxShape" id=29]
-extents = Vector3( 2, 1, 2 )
 
 [node name="level_0" type="Spatial"]
 script = ExtResource( 18 )
@@ -611,27 +608,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 16 )
 [node name="Ceiling6" parent="Room/CeilingGroup/CeilingRow5" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 20 )
 
-[node name="CheckPoint" type="Spatial" parent="Room"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22 )
-script = ExtResource( 17 )
-
-[node name="CheckpointBody" type="Area" parent="Room/CheckPoint" groups=["Checkpoint"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/CheckPoint/CheckpointBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0996704 )
-shape = SubResource( 29 )
-
-[node name="CheckPoint2" type="Spatial" parent="Room"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -22 )
-script = ExtResource( 17 )
-
-[node name="CheckpointBody" type="Area" parent="Room/CheckPoint2" groups=["Checkpoint"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-collision_layer = 4
-collision_mask = 4
+[node name="CheckPoint" parent="Room" instance=ExtResource( 5 )]
 
 [node name="Cab01" parent="Room" instance=ExtResource( 1 )]
 transform = Transform( 1.19962, 0, -0.0301978, 0, 1.2, 0, 0.0301978, 0, 1.19962, -5.21638, 1.32321, 33.9919 )
