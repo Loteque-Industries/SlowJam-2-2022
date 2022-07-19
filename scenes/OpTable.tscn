@@ -83,7 +83,7 @@ extents = Vector3( 0.556971, 1.10281, 1.20752 )
 [node name="OpTable" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499654, 0, -0.484475 )
 
-[node name="RootNode" type="KinematicBody" parent="." groups=["Home"]]
+[node name="RootNode" type="StaticBody" parent="."]
 
 [node name="OpTable" type="MeshInstance" parent="RootNode"]
 transform = Transform( 13.6662, 0, 0, 0, -4.8874e-06, 13.6662, 0, -13.6662, -4.8874e-06, 0, 1.03663, 1.15955 )

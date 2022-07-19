@@ -35,7 +35,6 @@ extents = Vector3( 0.546113, 0.550454, 0.558842 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05517, 4.2, 2.8649 )
 
 [node name="RootNode" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2718, -4.20165, 0 )
 script = ExtResource( 2 )
 
 [node name="Visuals" type="MeshInstance" parent="RootNode"]

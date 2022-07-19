@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://methods/Enemy/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="CylinderShape" id=30]
+radius = 1.5318
+height = 2.46274
 
 [sub_resource type="CapsuleShape" id=24]
 radius = 0.75
@@ -25,7 +29,19 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.5
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.882776, 1.11781, 0 )
-polygon = PoolVector2Array( 0, 0, 16, 4, 16, -4 )
+polygon = PoolVector2Array( 0, 0, 20, 10, 20, -10 )
+
+[node name="PerfL" type="CollisionPolygon" parent="Area"]
+transform = Transform( 0.422618, 0.906308, -3.9616e-08, 0, -4.37114e-08, -1, -0.906308, 0.422618, -1.84732e-08, -0.882776, 1.11781, 0 )
+polygon = PoolVector2Array( 0, 0, 10, 8, 10, -3 )
+
+[node name="PerfR" type="CollisionPolygon" parent="Area"]
+transform = Transform( 0.422618, 0.906308, 3.9616e-08, 0, -4.37114e-08, 1, 0.906308, -0.422618, -1.84732e-08, -0.882776, 1.11781, 0 )
+polygon = PoolVector2Array( 0, 0, 10, 8, 10, -3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90268, 1.36859, -2.38419e-07 )
+shape = SubResource( 30 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.548853, 0 )

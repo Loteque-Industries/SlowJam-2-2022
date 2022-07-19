@@ -168,6 +168,12 @@ config/name="slowjam-2-2022"
 run/main_scene="res://scenes/World.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/test_width=1024
+window/size/test_height=600
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/SelEx/plugin.cfg", "res://addons/behavior_tree/plugin.cfg", "res://addons/terminal/plugin.cfg" )

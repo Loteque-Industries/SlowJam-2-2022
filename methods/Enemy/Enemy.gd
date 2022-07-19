@@ -7,6 +7,7 @@ export(Array, NodePath) var home
 
 var space_state
 var target
+var projectile
 
 var timer = Timer.new()
 
@@ -16,17 +17,22 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if target:
 		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
+
 		if result.collider.is_in_group("Player"):
 			look_at(target.global_transform.origin, Vector3.UP)
 			move_to_target(delta)
-			set_color(Color(1,0,0))
 		else:
-			result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
-			look_at(target.global_transform.origin, Vector3.UP)
-			move_to_target(delta)
-			set_color(Color(0,1,0))
+			if projectile:
+				look_at(projectile.global_transform.origin, Vector3.UP)
+				result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
+				move_to_target(delta)
+			else:
+				result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
+				look_at(target.global_transform.origin, Vector3.UP)
+				move_to_target(delta)
 	else:
 		randomize_home()
+		
 		
 func _on_Area_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
@@ -37,16 +43,29 @@ func _on_Area_body_entered(body: Node) -> void:
 		pick_new_home()
 		print(body.name + " entered")
 		set_color(Color(0, 1, 0))
-
+	elif body.is_in_group("Projectile"):
+		projectile = body
+		clear_projectile_timer()
+		randomize_home()
+		body.remove_from_group("Projectile")
+		print(body.name + " entered")
+		
 func _on_Area_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		target = get_node(home[randi() % home.size()])
 		print(body.name + " exited")
 		set_color(Color(0, 1, 0))
-
+	elif body.is_in_group("Projectile"):
+		projectile = null
+		print(body.name + " exited")
+		
+func knock_back(delta):
+	var direction = (projectile.get_transform().origin + transform.origin)
+	move_and_slide(direction * speed * delta, Vector3.UP)
+	
 func move_to_target(delta):
 	var direction = (target.get_transform().origin - transform.origin).normalized()
-	move_and_slide(direction * speed * delta, Vector3.UP)
+	move_and_slide((direction * speed * delta), Vector3.UP).normalized()
 
 func set_color(color):
 	$MeshInstance.get_surface_material(0).set_albedo(color)
@@ -60,3 +79,14 @@ func pick_new_home():
 
 func randomize_home():
 	target = get_node(home[randi() % home.size()])
+
+func clear_projectile_timer():
+	timer.connect("timeout", self, "clear_projectile")
+	timer.wait_time = wait_time
+	timer.one_shot = false
+	add_child(timer)
+	timer.start()
+	
+func clear_projectile():
+	projectile = null
+	
