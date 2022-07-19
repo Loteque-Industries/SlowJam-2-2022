@@ -5,16 +5,13 @@ export var acceleration = 5
 export var gravity = 0.98
 export var jump_power = 30
 export var look_sensitivity = 0.3
-
-onready var checkpoint
+export var throw_force: float = 200
 onready var head = $Head
 onready var camera = $Head/Camera
 onready var arm_camera = $Head/Camera/ViewportContainer/Viewport/ArmCam
 var velocity = Vector3()
 var camera_x_rotation = 0
-
-export var throw_force: float = 200
-
+var checkpoint
 # OBJECT
 var collider = null
 var previous_collider = null

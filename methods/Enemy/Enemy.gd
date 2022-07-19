@@ -13,6 +13,7 @@ var timer = Timer.new()
 
 func _ready() -> void:
 	space_state = get_world().direct_space_state
+	pick_new_home()
 	
 func _process(delta: float) -> void:
 	if target:
@@ -46,13 +47,13 @@ func _on_Area_body_entered(body: Node) -> void:
 	elif body.is_in_group("Projectile"):
 		projectile = body
 		clear_projectile_timer()
-		randomize_home()
+		pick_new_home()
 		body.remove_from_group("Projectile")
 		print(body.name + " entered")
 		
 func _on_Area_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
-		target = get_node(home[randi() % home.size()])
+		randomize_home()
 		print(body.name + " exited")
 		set_color(Color(0, 1, 0))
 	elif body.is_in_group("Projectile"):
