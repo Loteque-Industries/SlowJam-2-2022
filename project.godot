@@ -133,6 +133,11 @@ _global_script_classes=[ {
 "class": "Interaction",
 "language": "GDScript",
 "path": "res://methods/actor/interaction.gd"
+}, {
+"base": "Spatial",
+"class": "Level",
+"language": "GDScript",
+"path": "res://methods/level/level.gd"
 } ]
 _global_script_class_icons={
 "API_Connector": "",
@@ -159,7 +164,8 @@ _global_script_class_icons={
 "Connection_Data": "",
 "Enemy": "",
 "Interactable": "",
-"Interaction": ""
+"Interaction": "",
+"Level": ""
 }
 
 [application]
@@ -168,11 +174,16 @@ config/name="slowjam-2-2022"
 run/main_scene="res://scenes/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Event="*res://Event.gd"
+
 [display]
 
 window/size/test_width=1024
 window/size/test_height=600
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [editor_plugins]
 
