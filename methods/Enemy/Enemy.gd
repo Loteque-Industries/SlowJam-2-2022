@@ -39,11 +39,9 @@ func _on_Area_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		target = body
 		print(body.name + " entered")
-		set_color(Color(1, 0, 0))
 	elif body.is_in_group("Home") and body.is_in_group("Player") == false:
 		pick_new_home()
 		print(body.name + " entered")
-		set_color(Color(0, 1, 0))
 	elif body.is_in_group("Projectile"):
 		projectile = body
 		clear_projectile_timer()
@@ -55,7 +53,6 @@ func _on_Area_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		randomize_home()
 		print(body.name + " exited")
-		set_color(Color(0, 1, 0))
 	elif body.is_in_group("Projectile"):
 		projectile = null
 		print(body.name + " exited")
@@ -79,7 +76,8 @@ func pick_new_home():
 	timer.start()
 
 func randomize_home():
-	target = get_node(home[randi() % home.size()])
+	if !home: return
+	else: target = get_node(home[randi() % home.size()])
 
 func clear_projectile_timer():
 	timer.connect("timeout", self, "clear_projectile")

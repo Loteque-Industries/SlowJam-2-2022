@@ -1,15 +1,16 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
+[ext_resource path="res://scenes/Bot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/OnewayMirror.tscn" type="PackedScene" id=3]
 [ext_resource path="res://node_script/Level_0.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Tank.tscn" type="PackedScene" id=5]
 [ext_resource path="res://node_script/Checkpoint.gd" type="Script" id=6]
 [ext_resource path="res://086_hdrmaps_com_free.exr" type="Texture" id=7]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Window.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Doorway.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Ceiling.tscn" type="PackedScene" id=15]
@@ -26,6 +27,7 @@
 [ext_resource path="res://scenes/Scalpel.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/Bone Saw.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/Cabinet.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=29]
 
 [sub_resource type="PanoramaSky" id=27]
 panorama = ExtResource( 7 )
@@ -62,19 +64,14 @@ shadow_color = Color( 0.290196, 0, 0.25098, 1 )
 [node name="Player" parent="Room" instance=ExtResource( 10 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 5, 0, 17 )
 
-[node name="Guard" parent="Room" instance=ExtResource( 12 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -8.37423, 0.742851, -0.9834 )
-wait_time = 5
-home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
+[node name="Guard" parent="Room" instance=ExtResource( 29 )]
+transform = Transform( 0.113207, 0, -0.690785, 0, 0.7, 0, 0.690785, 0, 0.113207, -9.04873, 0.563696, -0.984765 )
+wait_time = 10
+home = [ NodePath("../AIWaypoint"), NodePath("../AIWaypoint3") ]
 
-[node name="Guard2" parent="Room" instance=ExtResource( 12 )]
+[node name="Bot" parent="Room" instance=ExtResource( 1 )]
 wait_time = 5
-home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
-
-[node name="Guard3" parent="Room" instance=ExtResource( 12 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.62577, 0.742851, -18.9834 )
-wait_time = 5
-home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
+home = [ NodePath("../AIWaypoint"), NodePath("../AIWaypoint2") ]
 
 [node name="FloorGroup" type="Spatial" parent="Room"]
 __meta__ = {
@@ -603,6 +600,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0696, 0.861723, 9.85197 )
 [node name="AIWaypoint" parent="Room" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64089, 0.73235, -2.25408 )
 
+[node name="AIWaypoint2" parent="Room" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64089, 0.73235, -16.8137 )
+
+[node name="AIWaypoint3" parent="Room" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9017, 1.06007, -6.993 )
+
 [node name="CheckPoint" type="Spatial" parent="Room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 18 )
 script = ExtResource( 6 )
@@ -626,3 +629,6 @@ collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Room/CheckPoint2/CheckpointBody"]
 shape = SubResource( 29 )
+
+[node name="Tank" parent="Room" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29376, 0.524805, 4.54483 )
