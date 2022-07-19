@@ -2,7 +2,7 @@
 
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material.material" type="Material" id=1]
 [ext_resource path="res://meshes/Level Design Objects/Trash Bin/Material_007.material" type="Material" id=2]
-[ext_resource path="res://node_script/Pickable.gd" type="Script" id=3]
+[ext_resource path="res://node_script/pickable.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=30]
 

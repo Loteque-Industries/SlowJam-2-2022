@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 			print("tagged by " + collision.collider.name)
 			#teleport player to checkpoint
 			if !checkpoint: get_tree().reload_current_scene()
-			else: self.global_transform = checkpoint.get_parent().global_transform
+			else: self.transform = checkpoint.global_transform
 			
 	#check for checkpoints
 	call_deferred("get_checkpoint")

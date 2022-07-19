@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://node_script/Bot.gd" type="Script" id=1]
+[ext_resource path="res://node_script/bot.gd" type="Script" id=1]
 [ext_resource path="res://meshes/CapsuleBot/CapsuleBotMat.png" type="Texture" id=2]
 
 [sub_resource type="CylinderShape" id=30]

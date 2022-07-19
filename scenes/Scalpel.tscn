@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://node_script/Pickable.gd" type="Script" id=1]
+[ext_resource path="res://node_script/pickable.gd" type="Script" id=1]
 [ext_resource path="res://meshes/Level Design Objects/Scalpel/Material_004.material" type="Material" id=2]
 [ext_resource path="res://meshes/Level Design Objects/Scalpel/ScalpelMat.png" type="Texture" id=3]
 

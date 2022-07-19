@@ -4,7 +4,7 @@
 [ext_resource path="res://meshes/Level Design Objects/Cardboard Box/Box - RoughMat.png" type="Texture" id=2]
 [ext_resource path="res://meshes/Level Design Objects/Cardboard Box/Material_002.material" type="Material" id=3]
 [ext_resource path="res://meshes/Level Design Objects/Cardboard Box/Box Standard Mat.png" type="Texture" id=4]
-[ext_resource path="res://node_script/Pickable.gd" type="Script" id=5]
+[ext_resource path="res://node_script/pickable.gd" type="Script" id=5]
 
 [sub_resource type="ArrayMesh" id=29]
 blend_shape_mode = 0
