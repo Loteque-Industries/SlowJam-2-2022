@@ -1,6 +1,5 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://node_script/Guard.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/OnewayMirror.tscn" type="PackedScene" id=3]
 [ext_resource path="res://node_script/Level_0.gd" type="Script" id=4]
@@ -58,9 +57,24 @@ light_energy = 1.715
 shadow_enabled = true
 shadow_color = Color( 0.290196, 0, 0.25098, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 10 )]
-
 [node name="Room" type="Room" parent="."]
+
+[node name="Player" parent="Room" instance=ExtResource( 10 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 5, 0, 17 )
+
+[node name="Guard" parent="Room" instance=ExtResource( 12 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -8.37423, 0.742851, -0.9834 )
+wait_time = 5
+home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
+
+[node name="Guard2" parent="Room" instance=ExtResource( 12 )]
+wait_time = 5
+home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
+
+[node name="Guard3" parent="Room" instance=ExtResource( 12 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.62577, 0.742851, -18.9834 )
+wait_time = 5
+home = [ NodePath("../OpTable"), NodePath("../OpTable2") ]
 
 [node name="FloorGroup" type="Spatial" parent="Room"]
 __meta__ = {
@@ -536,20 +550,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 16 )
 
 [node name="Ceiling6" parent="Room/CeilingGroup/CeilingRow5" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 20 )
-
-[node name="Guard2" parent="Room" instance=ExtResource( 12 )]
-transform = Transform( 0.383172, 0, 0.585815, 0, 0.7, 0, -0.585815, 0, 0.383172, -1.77201, 0.499563, -7.50466 )
-script = ExtResource( 1 )
-wait_time = 5
-speed = 300
-home = [ NodePath("../OpTable"), NodePath("../Cabinet"), NodePath("../LongCrate"), NodePath(""), NodePath("../AIWaypoint") ]
-
-[node name="Guard3" parent="Room" instance=ExtResource( 12 )]
-transform = Transform( 0.383172, 0, 0.585815, 0, 0.7, 0, -0.585815, 0, 0.383172, -1.77201, 0.499563, -7.50466 )
-script = ExtResource( 1 )
-wait_time = 5
-speed = 300
-home = [ NodePath("../OpTable"), NodePath("../Cabinet"), NodePath("../LongCrate"), NodePath(""), NodePath("../AIWaypoint") ]
 
 [node name="OpTable" parent="Room" instance=ExtResource( 18 )]
 transform = Transform( 0.111746, 0, -0.993737, 0, 1, 0, 0.993737, 0, 0.111746, 5.27247, 0, -0.484475 )
