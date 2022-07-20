@@ -53,13 +53,15 @@ func _physics_process(delta: float) -> void:
 		slope(slides, velocity)
 	
 	#check for Enemy colisions
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider.is_in_group("Enemy"):
-			print("tagged by " + collision.collider.name)
-			#teleport player to checkpoint
-			if !checkpoint: get_tree().reload_current_scene()
-			else: self.transform = checkpoint.global_transform
+	#for index in get_slide_count():
+	#	var collision = get_slide_collision(index)
+	#	if collision.collider.is_in_group("Enemy"):
+	#		print("tagged by " + collision.collider.name)
+			
+	if get_enemy_collision():
+		#teleport player to checkpoint
+		if !checkpoint: get_tree().reload_current_scene()
+		else: self.transform = checkpoint.global_transform
 			
 	#check for checkpoints
 	call_deferred("get_checkpoint")
@@ -115,3 +117,12 @@ func get_checkpoint():
 				checkpoint = new_checkpoint
 				print(checkpoint.name)
 				checkpoint.get_child(0).disabled = true
+
+func get_enemy_collision():
+	var collisions = $"CheckpointArea".get_overlapping_bodies()
+	if !collisions: return
+	else:
+		for collision in collisions:
+			if collision.is_in_group("Enemy"):
+				collision = collisions
+				return true
