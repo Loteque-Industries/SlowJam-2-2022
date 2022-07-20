@@ -124,7 +124,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://methods/Enemy/Enemy.gd"
 }, {
-"base": "Node",
+"base": "CollisionObject",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://methods/interactable.gd"

@@ -36,9 +36,7 @@ func resume():
 		pause_menu.hide()
 	
 func _on_PlayButton_pressed() -> void:
-	main_menu.hide()
-	get_tree().set_deferred("paused", false)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_tree().change_scene("res://scenes/level/Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 	
 func _on_ContinueButton_pressed() -> void:
 	pause_menu.hide()
