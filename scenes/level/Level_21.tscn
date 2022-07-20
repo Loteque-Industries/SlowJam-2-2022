@@ -28,7 +28,7 @@ tonemap_mode = 3
 tonemap_exposure = 0.7
 tonemap_white = 7.0
 
-[node name="level_7" type="Spatial"]
+[node name="Level_21" type="Spatial"]
 script = ExtResource( 3 )
 
 [node name="PauseController" parent="." instance=ExtResource( 14 )]

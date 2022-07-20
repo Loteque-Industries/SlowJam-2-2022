@@ -26,8 +26,8 @@
 [ext_resource path="res://scenes/Bone Saw.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/Scalpel.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/NormalCrate.tscn" type="PackedScene" id=26]
-[ext_resource path="res://node_script/Level_0.gd" type="Script" id=27]
-[ext_resource path="res://node_script/Checkpoint.gd" type="Script" id=28]
+[ext_resource path="res://node_script/level_0.gd" type="Script" id=27]
+[ext_resource path="res://node_script/checkpoint.gd" type="Script" id=28]
 
 [sub_resource type="PanoramaSky" id=27]
 
