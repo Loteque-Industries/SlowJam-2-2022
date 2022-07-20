@@ -112,6 +112,7 @@ pause_mode = 2
 [node name="LargeArmL" type="MeshInstance" parent="Head/Camera/AlienArmsRig"]
 transform = Transform( -99.3994, 5.48623, -9.46871, -4.21484, -99.0433, -13.1402, -10.099, -12.6622, 98.6796, -1.06266, 1.86427, 0.041756 )
 layers = 2
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = SubResource( 26 )
@@ -119,6 +120,7 @@ material/0 = SubResource( 26 )
 [node name="SmallArmL" type="MeshInstance" parent="Head/Camera/AlienArmsRig"]
 transform = Transform( 20.0743, -84.5657, -49.4536, 88.6759, -5.76969, 45.8617, -41.6366, -53.0599, 73.8312, -0.645768, 1.02864, 2.69046 )
 layers = 2
+cast_shadow = 0
 mesh = SubResource( 5 )
 skeleton = NodePath("")
 material/0 = SubResource( 27 )
@@ -126,6 +128,7 @@ material/0 = SubResource( 27 )
 [node name="Large Arm001" type="MeshInstance" parent="Head/Camera/AlienArmsRig"]
 transform = Transform( 98.3712, -0.0814679, 17.9753, 2.95776, -98.5626, -16.6333, -17.7304, -16.894, 96.9548, 1.00491, 1.86328, 0.112939 )
 layers = 2
+cast_shadow = 0
 mesh = SubResource( 11 )
 skeleton = NodePath("")
 material/0 = SubResource( 30 )
@@ -133,6 +136,7 @@ material/0 = SubResource( 30 )
 [node name="Small Arm001" type="MeshInstance" parent="Head/Camera/AlienArmsRig"]
 transform = Transform( -80.2465, 35.3257, 48.0894, 59.2359, 56.8641, 57.0752, 7.18341, -74.287, 66.557, 1.57967, 0.102852, 2.81609 )
 layers = 2
+cast_shadow = 0
 mesh = SubResource( 12 )
 skeleton = NodePath("")
 material/0 = SubResource( 31 )
