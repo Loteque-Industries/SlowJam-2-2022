@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/level/StartController.gd" type="Script" id=1]
+[ext_resource path="res://node_script/StartController.gd" type="Script" id=1]
 
 [sub_resource type="DynamicFontData" id=4]
 font_path = "res://data/font/Press_Start_2P_Regular.ttf"

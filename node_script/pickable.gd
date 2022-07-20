@@ -1,6 +1,6 @@
 extends RigidBody
 
-const Highlight = preload("res://visuals/highlight.tres")
+const Highlight = preload("res://data/visuals/highlight.tres")
 
 onready var original_parent = get_parent()
 onready var original_collision_layer = collision_layer
