@@ -67,17 +67,19 @@ transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.9972, 1, -0.95645 )
 [node name="Scientist" parent="Room" instance=ExtResource( 12 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 5.48446, 0.572014, -10.5926 )
 wait_time = 5
-speed = 150
+speed = 130
 home = [ NodePath("../AIPoint-Cart"), NodePath("../AIPoint - BlueTank") ]
 
 [node name="Guard" parent="Room" instance=ExtResource( 29 )]
 transform = Transform( 0.113207, 0, -0.690785, 0, 0.7, 0, 0.690785, 0, 0.113207, 1.12723, 0.563696, -5.4347 )
 wait_time = 10
+speed = 150
 home = [ NodePath("../Scientist"), NodePath("../Bot") ]
 
 [node name="Bot" parent="Room" instance=ExtResource( 1 )]
 transform = Transform( 0.334634, 0, -0.614834, 0, 0.7, 0, 0.614834, 0, 0.334634, 5.00229, 0.290989, 0.823864 )
 wait_time = 5
+speed = 160
 home = [ NodePath(""), NodePath("") ]
 
 [node name="FloorGroup" type="Spatial" parent="Room"]
