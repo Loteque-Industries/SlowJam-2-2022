@@ -9,7 +9,7 @@ font_path = "res://data/font/Press_Start_2P_Regular.ttf"
 size = 24
 font_data = SubResource( 4 )
 
-[node name="Level_19" type="Node"]
+[node name="Level_0" type="Node"]
 
 [node name="StartController" type="CanvasLayer" parent="."]
 script = ExtResource( 1 )
