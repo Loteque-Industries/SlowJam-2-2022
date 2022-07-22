@@ -36,10 +36,10 @@ func resume():
 		pause_menu.hide()
 	
 func _on_PlayButton_pressed() -> void:
-	for i in range(1,11):
-		var level = ("res://scenes/level/Level_" + str(int(get_tree().current_scene.name) + i) + ".tscn")
-		print(level)
-		get_tree().change_scene(level)
+		for i in range(1,11):
+			var level = ("res://scenes/level/Level_" + str(int(get_tree().current_scene.name) + i) + ".tscn")
+			print(level)
+			get_tree().change_scene(level)
 	
 func _on_ContinueButton_pressed() -> void:
 	pause_menu.hide()
