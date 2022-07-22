@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://scenes/LevelChanger.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/LevelChangerNode.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Window.tscn" type="PackedScene" id=2]
 [ext_resource path="res://node_script/level_0.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Ceiling.tscn" type="PackedScene" id=4]

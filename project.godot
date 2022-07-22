@@ -138,6 +138,11 @@ _global_script_classes=[ {
 "class": "Level",
 "language": "GDScript",
 "path": "res://methods/level/Level.gd"
+}, {
+"base": "Node",
+"class": "Level_Changer",
+"language": "GDScript",
+"path": "res://methods/level/LevelChanger.gd"
 } ]
 _global_script_class_icons={
 "API_Connector": "",
@@ -165,7 +170,8 @@ _global_script_class_icons={
 "Enemy": "",
 "Interactable": "",
 "Interaction": "",
-"Level": ""
+"Level": "",
+"Level_Changer": ""
 }
 
 [application]
