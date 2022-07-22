@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/Bot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PauseController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/OnewayMirror.tscn" type="PackedScene" id=3]
-[ext_resource path="res://node_script/level_0.gd" type="Script" id=4]
+[ext_resource path="res://scenes/LevelChanger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Tank.tscn" type="PackedScene" id=5]
-[ext_resource path="res://node_script/checkpoint.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Window.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
@@ -41,11 +40,7 @@ tonemap_mode = 3
 tonemap_exposure = 0.7
 tonemap_white = 7.0
 
-[sub_resource type="BoxShape" id=29]
-extents = Vector3( 2, 1, 2 )
-
-[node name="level_1" type="Spatial"]
-script = ExtResource( 4 )
+[node name="level_30" type="Spatial"]
 
 [node name="PauseController" parent="." instance=ExtResource( 2 )]
 
@@ -62,7 +57,7 @@ shadow_color = Color( 0.290196, 0, 0.25098, 1 )
 [node name="Room" type="Room" parent="."]
 
 [node name="Player" parent="Room" instance=ExtResource( 10 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.9972, 1, -0.95645 )
+transform = Transform( -3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -23.9972, 1, -0.95645 )
 
 [node name="Scientist" parent="Room" instance=ExtResource( 12 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 5.48446, 0.572014, -10.5926 )
@@ -248,6 +243,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -12 )
 [node name="Floor10" parent="Room/FloorGroup/FloorRow5" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -16 )
 
+[node name="Floor12" parent="Room/FloorGroup/FloorRow5" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -16 )
+
 [node name="Floor11" parent="Room/FloorGroup/FloorRow5" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
 
@@ -255,6 +253,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Door" parent="Room/WallGroup" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
 
 [node name="WallGroup" type="Spatial" parent="Room/WallGroup"]
 
@@ -307,13 +308,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 
 [node name="OnewayMirror" parent="Room/WallGroup/WallGroup" instance=ExtResource( 3 )]
 
-[node name="Door" parent="Room/WallGroup/WallGroup" instance=ExtResource( 13 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10, 0, -20 )
-
 [node name="Doorway" parent="Room/WallGroup/WallGroup" instance=ExtResource( 14 )]
 
 [node name="Doorway3" parent="Room/WallGroup/WallGroup" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -16 )
+
+[node name="Doorway4" parent="Room/WallGroup/WallGroup" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -16 )
+
+[node name="Door" parent="Room/WallGroup/WallGroup/Doorway4" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.395651 )
 
 [node name="Window3" parent="Room/WallGroup/WallGroup" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -8 )
@@ -378,6 +382,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 12 )
 
 [node name="Wall11" parent="Room/WallGroup/WallGroup4" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20 )
+
+[node name="Wall14" parent="Room/WallGroup/WallGroup4" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, 12 )
+
+[node name="Wall13" parent="Room/WallGroup/WallGroup4" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 16 )
 
 [node name="OpTable2" parent="Room" instance=ExtResource( 18 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.276, 0, -8.56785 )
@@ -453,30 +463,6 @@ transform = Transform( 0.980758, 0, -0.195227, 0, 1, 0, 0.195227, 0, 0.980758, 4
 
 [node name="AIWaypoint6" parent="Room" instance=ExtResource( 20 )]
 transform = Transform( 0.995031, 0, 0.0995629, 0, 1, 0, -0.0995629, 0, 0.995031, 5.10467, 1.06007, -0.492871 )
-
-[node name="CheckPoint Mid" type="Spatial" parent="Room"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.23021, 0, -19.85 )
-script = ExtResource( 6 )
-
-[node name="CheckpointBody" type="Area" parent="Room/CheckPoint Mid" groups=["Checkpoint"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/CheckPoint Mid/CheckpointBody"]
-shape = SubResource( 29 )
-
-[node name="CheckPoint Entry" type="Spatial" parent="Room"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2302, 0, -1.84997 )
-script = ExtResource( 6 )
-
-[node name="CheckpointBody" type="Area" parent="Room/CheckPoint Entry" groups=["Checkpoint"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/CheckPoint Entry/CheckpointBody"]
-shape = SubResource( 29 )
 
 [node name="Tank" parent="Room" instance=ExtResource( 5 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 8.29376, 0.524805, -22.4552 )
@@ -743,6 +729,9 @@ transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -6.04029, 3.9998, -23.9712 )
 [node name="Ceiling2" parent="Ceiling Group" instance=ExtResource( 15 )]
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 9.95971, 3.9998, -19.9712 )
 
+[node name="Ceiling51" parent="Ceiling Group" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 13.9597, 3.9998, -19.9712 )
+
 [node name="Ceiling7" parent="Ceiling Group" instance=ExtResource( 15 )]
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 5.95971, 3.9998, -19.9712 )
 
@@ -939,6 +928,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73009, 1.17116, -6.2307 )
 
 [node name="Box2" parent="Boxes Group" instance=ExtResource( 17 )]
 transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -9.27867, 0.411977, 0.842514 )
+
+[node name="LevelChanger" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.7, 14, 0, -18 )
 
 [editable path="Room/TrashBin3"]
 [editable path="Room/TrashBin4"]
